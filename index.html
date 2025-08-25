@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shroom — Official Site</title>
   <meta name="description" content="Shroom crafts gritty, psychedelic bass—equal parts high-energy and hypnotic—built for big systems and late-night deep dives, with a focus on sound design and rhythm.">
+  <!-- Trippy display font for hero -->
+  <link href="https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-top: #1f0f2e;
@@ -23,7 +25,7 @@
     }
     a { color: var(--text); text-decoration: none; }
     .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
-    .btn { display:inline-block; padding: 12px 20px; border-radius: 12px; background:#fff; color:#000; font-weight:600; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding: 12px 20px; border-radius: 12px; background:#fff; color:#000; font-weight:600; }
     .btn.outline { background: transparent; color:#fff; border:1px solid rgba(255,255,255,.25); }
     header.hero {
       position: relative; overflow: hidden;
@@ -31,6 +33,7 @@
       padding: 72px 0 90px;
       text-align: center;
     }
+    .acid { font-family: 'Tilt Warp', system-ui, sans-serif; letter-spacing: .3px; }
     .subtle { color: var(--muted); }
     .row { display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:center; }
     /* Logo */
@@ -66,10 +69,10 @@
     .card { background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:16px; padding:14px; }
     iframe { width:100%; height: 172px; border:0; border-radius: 12px; }
     footer { padding: 50px 0; text-align:center; color: rgba(255,255,255,0.6); }
-    /* Social icons */
-    .social-icons { display:flex; gap:18px; align-items:center; justify-content:center; margin-top: 16px; }
-    .social-icons a svg { width: 30px; height: 30px; fill: var(--icon); transition: transform .2s ease, filter .2s ease; }
-    .social-icons a:hover svg { transform: translateY(-2px) scale(1.04); filter: drop-shadow(0 0 8px rgba(200,132,252,0.45)); }
+    /* Social icons as big buttons */
+    .social-icons { display:flex; gap:16px; align-items:center; justify-content:center; margin-top: 18px; }
+    .social-icons a.btn.outline svg { width: 22px; height: 22px; fill: var(--icon); transition: transform .2s ease, filter .2s ease; }
+    .social-icons a.btn.outline:hover svg { transform: translateY(-2px) scale(1.04); filter: drop-shadow(0 0 8px rgba(200,132,252,0.45)); }
   </style>
 </head>
 <body>
@@ -105,23 +108,20 @@
 <path id="Vector_2" d="M962 55.3334C969.999 55.4854 976.943 59.7254 980.667 62.0001C991.728 68.7534 997.28 77.9641 1002 86.0001C1009.68 99.0774 1014.35 113.447 1018 124.667C1022.08 137.204 1023.16 143.153 1026 143.333C1029.62 143.563 1031.98 134.137 1038 119.333C1045.95 99.7787 1053.44 81.8627 1068.67 68.6667C1075.01 63.1721 1083.03 56.2241 1094 56.6667C1107.86 57.2254 1117.67 69.2241 1119.33 71.3334C1122.69 75.6001 1124.73 80.1667 1127.33 86.0001C1130.04 92.0654 1131.51 96.8587 1132.67 100.667C1135.69 110.647 1137.01 118.597 1138 124.667C1139.51 133.983 1140.67 144.667 1140.67 144.667C1140.67 144.667 1144.8 159.351 1148.67 172.667C1154.69 193.388 1154.35 191.116 1155.33 195.333C1156.62 200.812 1159.27 212.469 1159.33 227.333C1159.38 238.092 1159.27 253.48 1151.33 270C1148.19 276.531 1144.67 283.623 1136.67 288.667C1128.92 293.549 1121.12 293.899 1118 294C1114.69 294.108 1105.84 293.984 1096.67 288.667C1089.24 284.363 1085.32 278.82 1082 274C1072.48 260.195 1070.41 246.403 1070 243.333C1068.86 234.899 1070.18 232.88 1074 198C1075.71 182.383 1075.96 178.12 1075.33 178C1074.44 177.828 1072.39 186.293 1066 207.333C1060.35 225.952 1061.17 221.881 1059.33 228.667C1056.09 240.644 1053.96 251.696 1047.33 263.333C1046.22 265.288 1044.72 267.717 1042 270C1035.22 275.689 1026.85 275.464 1024.67 275.333C1015.09 274.757 1009.02 269.007 1007.33 267.333C1002.33 262.376 1000.62 256.787 999.333 252.667C994.505 240.917 990.981 231.271 988.667 224.667C985.872 216.693 984.249 211.476 980.667 202C977.783 194.372 972.469 180.319 971.333 180.667C970.5 180.921 972.761 188.672 975.333 203.333C977.672 216.661 978.225 225.996 979.333 244.667C979.561 248.499 979.839 253.941 978 260.667C977.636 261.996 976.225 266.909 972.667 272.667C969.824 277.265 963.487 287.561 951.333 291.333C945.829 293.041 941.256 292.791 939.333 292.667C921.467 291.52 908.681 275.104 904.667 270C874.599 231.776 891.223 131.999 926 82.0001C932.22 73.0574 945.121 55.0121 962 55.3334Z" fill="#FAF0E5"/>
 </g></g>
       </svg>
-      <h1 style="font-size:clamp(26px,5.4vw,50px); margin:14px 0 6px; text-wrap:balance;">Grimy, wet, trippy bass from Denver.</h1>
-      <p class="subtle" style="max-width:880px; margin: 8px auto 16px;">Shroom crafts gritty, psychedelic bass—equal parts high-energy and hypnotic—built for big systems and late-night deep dives, with a focus on sound design and rhythm.</p>
-      <div class="row" style="margin-top:6px;">
-        <a class="btn" href="#music">Listen</a>
-        <a class="btn outline" href="#contact">Contact</a>
-      </div>
+      <h1 class="acid" style="font-size:clamp(26px,5.4vw,50px); margin:14px 0 6px; text-wrap:balance;">Grimy, wet, trippy bass from Denver.</h1>
+      <p class="subtle acid" style="max-width:880px; margin: 8px auto 8px;">Shroom crafts gritty, psychedelic bass—equal parts high-energy and hypnotic—built for big systems and late-night deep dives, with a focus on sound design and rhythm.</p>
+      <!-- Removed Listen/Contact buttons per request -->
       <div class="social-icons" aria-label="Social links">
-        <a href="https://soundcloud.com/shroomdub" target="_blank" rel="noopener" aria-label="SoundCloud">
+        <a class="btn outline" href="https://soundcloud.com/shroomdub" target="_blank" rel="noopener" aria-label="SoundCloud">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M13.5 7a5 5 0 0 1 4.7 3.2c.27-.07.55-.1.83-.1A4 4 0 1 1 16 18H7a3 3 0 0 1-.33-5.98A4.5 4.5 0 0 1 13.5 7zM5 11.2c-.55.3-.9.9-.9 1.6s.35 1.3.9 1.6V11.2z"/>
-          </svg>
+  <path d="M13.5 7a5 5 0 0 1 4.7 3.2c.27-.07.55-.1.83-.1A4 4 0 1 1 16 18H7a3 3 0 0 1-.33-5.98A4.5 4.5 0 0 1 13.5 7zM5 11.2c-.55.3-.9.9-.9 1.6s.35 1.3.9 1.6V11.2z"/>
+</svg>
         </a>
-        <a href="https://instagram.com/shroomdub/" target="_blank" rel="noopener" aria-label="Instagram">
+        <a class="btn outline" href="https://instagram.com/shroomdub/" target="_blank" rel="noopener" aria-label="Instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path d="M12 7.2a4.8 4.8 0 1 0 0 9.6 4.8 4.8 0 0 0 0-9.6zm0 7.8a3 3 0 1 1 0-6 3 3 0 0 1 0 6zM17.7 6.3a1.12 1.12 0 1 0 0-2.24 1.12 1.12 0 0 0 0 2.24z"/>
-            <path d="M17 2H7A5 5 0 0 0 2 7v10a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5V7a5 5 0 0 0-5-5zm3 15a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v10z"/>
-          </svg>
+  <path d="M12 7.2a4.8 4.8 0 1 0 0 9.6 4.8 4.8 0 0 0 0-9.6zm0 7.8a3 3 0 1 1 0-6 3 3 0 0 1 0 6zM17.7 6.3a1.12 1.12 0 1 0 0-2.24 1.12 1.12 0 0 0 0 2.24z"/>
+  <path d="M17 2H7A5 5 0 0 0 2 7v10a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5V7a5 5 0 0 0-5-5zm3 15a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v10z"/>
+</svg>
         </a>
       </div>
     </div>
@@ -130,7 +130,7 @@
   <section id="music">
     <div class="container">
       <h2>Featured Music</h2>
-      <p class="lead">Direct from SoundCloud — replace this with specific tracks or playlists whenever you're ready.</p>
+      <!-- Removed descriptive line under Featured Music per request -->
       <div class="grid">
         <div class="card">
           <iframe scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/shroomdub&color=%23a855f7&inverse=false&auto_play=false&show_user=true"></iframe>
@@ -149,8 +149,10 @@
   <section id="contact">
     <div class="container">
       <h2>Contact</h2>
-      <p class="lead">Management (press &amp; general): <a href="mailto:mgmt@shroom.music">mgmt@shroom.music</a></p>
-      <p class="lead">Bookings: <a href="mailto:shroom@lichlightmanagment.com">shroom@lichlightmanagment.com</a></p>
+      <div class="row">
+        <a class="btn" href="mailto:mgmt@shroom.music">Press/Inquiries</a>
+        <a class="btn outline" href="mailto:shroom@lichlightmanagment.com">Booking</a>
+      </div>
     </div>
   </section>
 
