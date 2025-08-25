@@ -96,13 +96,13 @@
         0 2px 0 #000,2px 0 0 #000,0 -2px 0 #000,-2px 0 0 #000,
         0 0 16px rgba(168,85,247,.65),0 0 34px rgba(236,72,153,.4);
     }
-    p.lead { font-family:'Rock Salt', system-ui, sans-serif; color: var(--lime); font-size: clamp(16px, 2.6vw, 18px); margin: 10px auto; max-width: 860px;  }
+    p.lead {  color: var(--lime); font-size: clamp(16px, 2.6vw, 18px); margin: 10px auto; max-width: 860px;  }
     .grid { display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
     .card { background: rgba(255,255,255,0.06); border:0; border-radius:16px; padding:14px; 
     filter: drop-shadow(0 0 14px rgba(168,85,247,.55))
             drop-shadow(0 0 24px rgba(236,72,153,.35));
 }
-    iframe { width:100%; height: 360px; border:0; border-radius: 12px; }
+    iframe { width:100%; height: 172px; border:0; border-radius: 12px; }
     
     .card:hover {
       filter: drop-shadow(0 0 18px rgba(168,85,247,.65))
@@ -140,6 +140,22 @@ body {
 header.hero { background: transparent !important; }
 #contact { background: transparent !important; }
 /* --- End override --- */
+
+
+    /* Contact buttons: filled pink with Chewy font, outlined + glow */
+    .btn.solid { background: var(--icon); color: var(--cream); border: 0; }
+    .contact-buttons .btn {
+      font-family:'Chewy',system-ui,sans-serif;
+      -webkit-text-stroke:1.2px #000;
+      text-shadow:
+        1px 1px 0 #000,-1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000,
+        0 2px 0 #000,2px 0 0 #000,0 -2px 0 #000,-2px 0 0 #000,
+        0 0 12px rgba(168,85,247,.55),0 0 22px rgba(236,72,153,.35);
+      filter: drop-shadow(0 0 10px rgba(168,85,247,.45)) drop-shadow(0 0 18px rgba(236,72,153,.35));
+    }
+    .contact-buttons .btn:hover {
+      filter: drop-shadow(0 0 14px rgba(168,85,247,.65)) drop-shadow(0 0 26px rgba(236,72,153,.45));
+    }
 
 </style>
 </head>
@@ -204,7 +220,7 @@ header.hero { background: transparent !important; }
       <h2>Featured Music</h2>
       <div class="grid">
         <div class="card">
-          <iframe scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/shroomdub&color=%23a855f7&inverse=false&auto_play=false&show_user=true&visual=true"></iframe>
+          <iframe scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/shroomdub&color=%23a855f7&inverse=false&auto_play=false&show_user=true"></iframe>
         </div>
       </div>
     </div>
@@ -221,7 +237,7 @@ header.hero { background: transparent !important; }
     <div class="container">
       <h2>Contact</h2>
       <div class="contact-buttons">
-        <a class="btn outline" href="mailto:mgmt@shroom.music">Press/Inquiries</a>
+        <a class="btn solid" href="mailto:mgmt@shroom.music">Press/Inquiries</a>
         <a class="btn outline" href="mailto:shroom@lichlightmanagment.com">Booking</a>
       </div>
     </div>
