@@ -23,7 +23,7 @@
     * { box-sizing: border-box; }
     html, body { height: 100%; }
     body {
-      margin: 0; color: var(--text); background: var(--bg-bot);
+      margin: 0; color: var(--text); background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 100%);
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans';
       line-height: 1.6;
     }
@@ -39,7 +39,7 @@
     header.hero {
       position: relative;
       overflow: visible;
-      background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 22%, var(--bg-mid) 22%, var(--bg-mid) 78%, var(--bg-bot) 92%, var(--bg-bot) 100%), var(--bg-mid), var(--bg-bot));
+      background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 20%, var(--bg-mid) 20%, var(--bg-mid) 100%) 0%, var(--bg-top) 22%, var(--bg-mid) 22%, var(--bg-mid) 78%, var(--bg-bot) 92%, var(--bg-bot) 100%), var(--bg-mid), var(--bg-bot));
       padding: 72px 0 90px;
       text-align: center;
     }
