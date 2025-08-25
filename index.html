@@ -6,7 +6,7 @@
   <title>Shroom Music</title>
   <meta name="description" content="Spread love, not hate">
   <!-- Fonts: Chewy (tagline/headers), Rock Salt (elevator) -->
-  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Rock+Salt&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Rock+Salt&display=swap&family=Quicksand:wght@400;700" rel="stylesheet">
   <style>
     :root {
       --bg-top: #1A0F3B;
@@ -32,7 +32,7 @@
 
     /* Buttons */
     .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding: 12px 20px; border-radius: var(--btn-radius); font-weight:600; }
-    .btn.outline { background: transparent; color: var(--icon); border:3px solid var(--icon); }
+    .btn.outline { background: transparent; color: var(--lime); border:3px solid var(--icon); }
     .btn:hover { filter: drop-shadow(0 0 12px rgba(168,85,247,0.55)) drop-shadow(0 0 20px rgba(236,72,153,0.35)); }
     .btn.outline:hover { color: var(--icon-bright); border-color: var(--icon-bright); }
 
@@ -96,7 +96,7 @@
         0 2px 0 #000,2px 0 0 #000,0 -2px 0 #000,-2px 0 0 #000,
         0 0 16px rgba(168,85,247,.65),0 0 34px rgba(236,72,153,.4);
     }
-    p.lead {  color: var(--lime); font-size: clamp(16px, 2.6vw, 18px); margin: 10px auto; max-width: 860px;  }
+    p.lead {  color: var(--cream); font-size: clamp(24px, 3.9vw, 27px); margin: 10px auto; max-width: 860px;  }
     .grid { display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
     .card { background: rgba(255,255,255,0.06); border:0; border-radius:16px; padding:14px; 
     filter: drop-shadow(0 0 14px rgba(168,85,247,.55))
@@ -117,7 +117,7 @@ footer { padding: 50px 0; text-align:center; color: #ffffff; }
     .icon-link:hover svg { transform: translateY(-2px) scale(1.06); filter: drop-shadow(0 0 14px rgba(168,85,247,0.55)) drop-shadow(0 0 22px rgba(236,72,153,0.35)); fill: var(--icon-bright); }
 
     /* Contact buttons centered */
-    .contact-buttons { display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content: center; }
+    .contact-buttons { display:flex; flex-wrap:wrap; gap: 42px; align-items:center; justify-content: center; }
 
     /* Brandlet mini-logo above footer (larger box to avoid clipping) */
     #brandlet { display:grid; place-items:center; margin: 24px 0 10px; min-height: 120px; overflow: visible; }
@@ -167,7 +167,7 @@ p.lead { font-weight: 700; }
 .contact-buttons .btn { padding: 14px 28px; min-width: 260px; }
 
 /* Default outline style: pink text + border; Chewy outline already in baseline */
-.btn.outline { background: transparent; color: var(--icon); border: 3px solid var(--icon); }
+.btn.outline { background: transparent; color: var(--lime); border: 3px solid var(--icon); }
 
 /* Hover: fill pink, flip text to white, keep black text outline and glow */
 .contact-buttons .btn.outline:hover {
@@ -184,7 +184,286 @@ p.lead { font-weight: 700; }
 /* Footer copyright text white (if not already) */
 footer { color: #ffffff; }
 
+
+/* === On-page tweaks (appended) === */
+
+/* Move elevator down a bit & add depth */
+.elevator {
+  margin: 24px auto 6px;
+  text-shadow:
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000,
+    0 0 14px rgba(168,85,247,.45),
+    0 0 24px rgba(236,72,153,.35);
+}
+
+/* Add subtle depth to About text */
+p.lead {
+  text-shadow:
+    0.5px 0.5px 0 #000,
+    -0.5px 0.5px 0 #000,
+    0.5px -0.5px 0 #000,
+    -0.5px -0.5px 0 #000,
+    0 0 10px rgba(168,85,247,.35);
+}
+
+/* Icon sizing adjustments with alignment-preserving transforms */
+.social-icons a[aria-label="SoundCloud"] svg {
+  transform: scale(1.5);
+  transform-origin: 50% 50%;
+}
+.social-icons a[aria-label="SoundCloud"]:hover svg {
+  transform: translateY(-2px) scale(1.59);
+}
+
+.social-icons a[aria-label="TikTok"] svg {
+  transform: scale(0.9);
+  transform-origin: 50% 50%;
+}
+.social-icons a[aria-label="TikTok"]:hover svg {
+  transform: translateY(-2px) scale(0.954);
+}
+
+/* Make contact button text larger */
+.contact-buttons .btn {
+  font-size: 2rem;
+}
+
+
+/* === Tweaks (baseline per user file) === */
+
+/* Double the shadow for the elevator line */
+.elevator {
+  /* keep existing margin & color */
+  text-shadow:
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000,
+    0 0 28px rgba(168,85,247,.55),
+    0 0 48px rgba(236,72,153,.45);
+}
+
+/* About body: stronger shadow + fun, readable font */
+p.lead {
+  font-family: 'Quicksand', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  text-shadow:
+    1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000,
+    0 0 20px rgba(168,85,247,.45);
+}
+
+
+/* About body: adjust to 25% lighter of the prior purple and restore glow */
+p.lead {
+  color: #4c008b !important;
+  text-shadow:
+    1px 1px 0 #000,-1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000,
+    0 2px 0 #000,2px 0 0 #000,0 -2px 0 #000,-2px 0 0 #000,
+    0 0 16px rgba(168,85,247,.65),0 0 34px rgba(236,72,153,.4) !important;
+
+}
+
+
+/* === Minimal About text override (per latest baseline) === */
+p.lead {
+  -webkit-text-stroke: 0.8px var(--cream) !important;
+  text-shadow:
+    0 0 16px rgba(168,85,247,.65),
+    0 0 34px rgba(236,72,153,.40) !important;
+}
+
+
+/* Outline artifact fix for About body (p.lead):
+   Use a crisp faux-outline via text-shadow instead of -webkit-text-stroke */
+p.lead {
+  -webkit-text-stroke: 0 !important; /* disable stroke to prevent overlaps */
+  /* White outline (thin) */
+  text-shadow:
+    /* 8-direction 1px outline */
+    1px 0 0 var(--cream),
+    -1px 0 0 var(--cream),
+    0 1px 0 var(--cream),
+    0 -1px 0 var(--cream),
+    1px 1px 0 var(--cream),
+    1px -1px 0 var(--cream),
+    -1px 1px 0 var(--cream),
+    -1px -1px 0 var(--cream),
+    /* Keep the purple/pink glow */
+    0 0 16px rgba(168,85,247,.65),
+    0 0 34px rgba(236,72,153,.40) !important;
+}
+
+
+/* === Minimal, targeted overrides (per latest baseline) === */
+
+/* About body: header font + lighter-purple outline via text-shadow */
+p.lead {
+  font-family: 'Chewy', system-ui, sans-serif !important;
+  -webkit-text-stroke: 0 !important; /* keep faux-outline only */
+  text-shadow:
+    /* thin 1px 8-direction outline in lighter purple */
+    1px 0 0 #a680c5,
+    -1px 0 0 #a680c5,
+    0 1px 0 #a680c5,
+    0 -1px 0 #a680c5,
+    1px 1px 0 #a680c5,
+    1px -1px 0 #a680c5,
+    -1px 1px 0 #a680c5,
+    -1px -1px 0 #a680c5,
+    /* keep the existing purple/pink glow */
+    0 0 16px rgba(168,85,247,.65),
+    0 0 34px rgba(236,72,153,.40) !important;
+}
+
+/* Elevator spacing from logo: 3x current */
+.elevator { margin: 72px auto 6px !important; }
+
+
+/* === Minimal About body tweak (outline color + tracking) === */
+p.lead {
+  /* 15% tracking */
+  letter-spacing: 0.15em !important;
+  /* keep faux-outline (no stroke), change outline to lime */
+  -webkit-text-stroke: 0 !important;
+  text-shadow:
+    1px 0 0 var(--lime),
+    -1px 0 0 var(--lime),
+    0 1px 0 var(--lime),
+    0 -1px 0 var(--lime),
+    1px 1px 0 var(--lime),
+    1px -1px 0 var(--lime),
+    -1px 1px 0 var(--lime),
+    -1px -1px 0 var(--lime),
+    /* keep existing purple/pink glow */
+    0 0 16px rgba(168,85,247,.65),
+    0 0 34px rgba(236,72,153,.40) !important;
+}
+
+
+/* === Minimal About body override: match Contact button (green + black outline) === */
+p.lead {
+  color: var(--lime) !important;
+  -webkit-text-stroke: 0 !important; /* use faux-outline only */
+  text-shadow:
+    /* 1px black outline */
+    1px 0 0 #000,
+    -1px 0 0 #000,
+    0 1px 0 #000,
+    0 -1px 0 #000,
+    1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    -1px -1px 0 #000,
+    /* keep existing glow */
+    0 0 16px rgba(168,85,247,.65),
+    0 0 34px rgba(236,72,153,.40) !important;
+}
+
+
+/* === Minimal override: make About body text match Contact button text (except size) === */
+p.lead {
+  color: var(--lime) !important;
+  font-family:'Chewy',system-ui,sans-serif !important; /* same family as buttons */
+  -webkit-text-stroke: 1.4px #000 !important;
+  text-shadow:
+    1px 1px 0 #000,-1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000,
+    0 2px 0 #000,2px 0 0 #000,0 -2px 0 #000,-2px 0 0 #000,
+    0 0 12px rgba(168,85,247,.55),0 0 22px rgba(236,72,153,.35) !important;
+}
+
+
+/* === Restore star overlay (abundant + pronounced twinkle) === */
+body { position: relative; }
+body::before, body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0; /* behind all content */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Dense small stars */
+body::before {
+  opacity: 0.9;
+  background-image:
+    radial-gradient(1.6px 1.6px at 3% 6%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
+    radial-gradient(1.8px 1.8px at 7% 18%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
+    radial-gradient(1.5px 1.5px at 12% 32%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+    radial-gradient(1.7px 1.7px at 18% 12%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
+    radial-gradient(1.6px 1.6px at 22% 44%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+    radial-gradient(1.8px 1.8px at 28% 66%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
+    radial-gradient(1.6px 1.6px at 34% 22%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+    radial-gradient(1.5px 1.5px at 40% 52%, rgba(255,255,255,0.85), rgba(255,255,255,0)),
+    radial-gradient(1.7px 1.7px at 45% 74%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
+    radial-gradient(1.6px 1.6px at 50% 16%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+    radial-gradient(1.5px 1.5px at 56% 34%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+    radial-gradient(1.8px 1.8px at 60% 58%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
+    radial-gradient(1.5px 1.5px at 66% 10%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+    radial-gradient(1.7px 1.7px at 70% 28%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+    radial-gradient(1.6px 1.6px at 74% 46%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+    radial-gradient(1.5px 1.5px at 78% 64%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+    radial-gradient(1.6px 1.6px at 82% 20%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
+    radial-gradient(1.7px 1.7px at 86% 38%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
+    radial-gradient(1.6px 1.6px at 90% 56%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
+    radial-gradient(1.5px 1.5px at 94% 74%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+    radial-gradient(1.6px 1.6px at 8% 78%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
+    radial-gradient(1.5px 1.5px at 16% 86%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+    radial-gradient(1.7px 1.7px at 22% 92%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
+    radial-gradient(1.6px 1.6px at 30% 84%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+    radial-gradient(1.5px 1.5px at 38% 90%, rgba(255,255,255,0.85), rgba(255,255,255,0)),
+    radial-gradient(1.7px 1.7px at 46% 86%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
+    radial-gradient(1.6px 1.6px at 54% 92%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+    radial-gradient(1.5px 1.5px at 62% 84%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+    radial-gradient(1.6px 1.6px at 70% 90%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
+    radial-gradient(1.7px 1.7px at 78% 86%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
+    radial-gradient(1.6px 1.6px at 86% 92%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
+    radial-gradient(1.5px 1.5px at 92% 86%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+  animation: twinkleDense 5.4s ease-in-out infinite;
+  filter: blur(0.2px);
+}
+
+/* Larger, bright stars */
+body::after {
+  opacity: 0.9;
+  background-image:
+    radial-gradient(3.4px 3.4px at 12% 26%, rgba(255,255,255,1), rgba(255,255,255,0)),
+    radial-gradient(3.0px 3.0px at 28% 12%, rgba(255,255,255,1), rgba(255,255,255,0)),
+    radial-gradient(3.6px 3.6px at 42% 42%, rgba(255,255,255,1), rgba(255,255,255,0)),
+    radial-gradient(3.2px 3.2px at 58% 22%, rgba(255,255,255,1), rgba(255,255,255,0)),
+    radial-gradient(3.8px 3.8px at 72% 36%, rgba(255,255,255,1), rgba(255,255,255,0)),
+    radial-gradient(3.2px 3.2px at 84% 18%, rgba(255,255,255,1), rgba(255,255,255,0)),
+    radial-gradient(3.6px 3.6px at 18% 68%, rgba(255,255,255,1), rgba(255,255,255,0)),
+    radial-gradient(3.0px 3.0px at 34% 82%, rgba(255,255,255,1), rgba(255,255,255,0)),
+    radial-gradient(3.8px 3.8px at 52% 72%, rgba(255,255,255,1), rgba(255,255,255,0)),
+    radial-gradient(3.4px 3.4px at 68% 86%, rgba(255,255,255,1), rgba(255,255,255,0)),
+    radial-gradient(3.2px 3.2px at 86% 74%, rgba(255,255,255,1), rgba(255,255,255,0)),
+    radial-gradient(3.6px 3.6px at 10% 94%, rgba(255,255,255,1), rgba(255,255,255,0));
+  animation: twinkleBright 6.6s ease-in-out infinite;
+  filter: blur(0.3px);
+}
+
+@keyframes twinkleDense {
+  0%, 100% { opacity: 0.35; transform: translateY(0); }
+  50%      { opacity: 1.0;  transform: translateY(-1.6px); }
+}
+
+@keyframes twinkleBright {
+  0%, 100% { opacity: 0.30; transform: translateY(0); }
+  50%      { opacity: 1.0;  transform: translateY(1.6px); }
+}
+
+/* Ensure site content sits above the stars */
+header.hero, section, footer, #brandlet { position: relative; z-index: 1; }
+
 </style>
+  <link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgMzIwIj4KICA8ZyBpZD0iUyI+CiAgICA8cGF0aCBkPSJNMzAgMTY3LjMzM0MyNC45MiAxNjMuNjY1IDE1LjI4NTMgMTU1LjY2MSA4LjY2NjY3IDE0MkM3LjQ2MjY3IDEzOS41MTYgMS42MjUzMyAxMjcuMDcxIDIgMTEwQzIuNzAxMzMgNzguMDk3MyAyNC41MTg3IDU2LjcwOCAzMCA1MS4zMzMzQzQzLjM5ODcgMzguMTk3MyA1Ni44NDUzIDMyLjcwNTMgNzAgMjcuMzMzM0M4My4yODkzIDIxLjkwNjYgMTA3LjQ5OSAxMi4zNDUzIDEzOS4zMzMgMTUuMzMzM0MxNTEuMDA0IDE2LjQyOCAxNzcuNDA1IDE5LjI0NCAyMDAuNjY3IDM4QzIwNS40NDkgNDEuODU2IDIxNi43OTEgNTEuMiAyMjQuNjY3IDY3LjMzMzNDMjI5LjgyMyA3Ny44OTQ3IDIzMS4wMzEgODYuMjIxMyAyMzEuMzMzIDg4LjY2NjdDMjMyLjAyOSA5NC4yODI3IDIzMi45MTkgMTAxLjQ2IDIzMCAxMTBDMjI2LjQ2IDEyMC4zNiAyMTkuNTE1IDEyNi4yOTUgMjE2LjY2NyAxMjguNjY3QzIwOS4wMjQgMTM1LjAzMSAyMDEuMzY5IDEzNy4xMiAxOTggMTM4QzE5Ni4yMTUgMTM4LjQ2NyAxODguOTgxIDE0MC4yNTEgMTc5LjMzMyAxMzkuMzMzQzE2OS4yNjcgMTM4LjM3NiAxNjIuMTI1IDEzNS4wMDUgMTYyIDEzNS4zMzNDMTYxLjc1MyAxMzUuOTg0IDE5Mi4zNzIgMTQyLjU3NiAyMTEuMzMzIDE2NC42NjdDMjE3LjQyMSAxNzEuNzYgMjIxLjI0MSAxNzkuMjgxIDIyMiAxODAuNjY3QzIyNC4wNjUgMTg0LjQzNSAyMjguNzEzIDE5My44MTYgMjMwIDIwNkMyMzEuNTg5IDIyMS4wNTEgMjI3LjIzOSAyMzIuNjg1IDIyNC42NjcgMjM5LjMzM0MyMTkuNDA4IDI1Mi45MjQgMjEyLjA1MiAyNjEuNDMzIDIwMy4zMzMgMjcxLjMzM0MxOTcuMzc2IDI3OC4wOTkgMTg3LjU2MyAyODkuMjQzIDE3NCAyOThDMTM2LjAxMyAzMjIuNTI4IDkxLjU2IDMxMy41MTkgODIgMzExLjMzM0M2OC45NTIgMzA4LjM1MSA0Ni42IDMwMi45MzEgMjcuMzMzMyAyODMuMzMzQzIwLjAyOTMgMjc1LjkwNSAtMS4yMjkzMyAyNTQuMjgxIDAuNjY2NjY3IDIyMkMyLjU0IDE5MC4xMTEgMjUuNjU2IDE3MC44MjUgMzAgMTY3LjMzM1oiIGZpbGw9IiMwMDAwMDAiLz4KICAgIDxwYXRoIGQ9Ik0xMzIuNjY3IDM0QzE0NC40MTkgMzQuMzc4NyAxNjguOTM3IDM1LjE2OCAxOTAgNTIuNjY2N0MxOTYuMzQzIDU3LjkzNiAyMTQuNzk3IDczLjI2OCAyMTQgOTUuMzMzM0MyMTMuOTA1IDk3Ljk1NiAyMTMuMzczIDExMi43MDEgMjAyIDEyMkMxODguNDc2IDEzMy4wNTcgMTY2LjI2MSAxMzAuOTgxIDE1OCAxMjJDMTU2LjE5MSAxMjAuMDMzIDE1My44ODkgMTE2LjQ3MiAxNDguNjY3IDExMi42NjdDMTQ2LjEyNCAxMTAuODE1IDE0Mi44NDMgMTA4LjQ3MiAxMzggMTA3LjMzM0MxMzQuOTcxIDEwNi42MjEgMTI4Ljg0NyAxMDUuMTgxIDEyMy4zMzMgMTA4LjY2N0MxMjAuMzczIDExMC41MzcgMTE2LjM0MyAxMTQuNjE2IDExNi42NjcgMTE5LjMzM0MxMTYuOTk1IDEyNC4xMDkgMTIxLjYzNSAxMjcuMzI3IDEyNiAxMzBDMTQwLjA0MyAxMzguNTk5IDE0OS40MDMgMTQwLjQyMyAxNTkuMzMzIDE0NC42NjdDMTc1LjQ4MSAxNTEuNTY3IDE4NS43MzcgMTYxLjcwMSAxOTEuMzMzIDE2Ny4zMzNDMTk4LjM4MyAxNzQuNDI5IDIwNS42MjQgMTgxLjcxOSAyMTAgMTk0QzIxNS4wODMgMjA4LjI2MyAyMTMuMTU1IDIyMC41MzIgMjEyLjY2NyAyMjMuMzMzQzIwOS43NjMgMjM5Ljk4MSAxOTkuOTQ0IDI1MC4yNTkgMTkwIDI2MC42NjdDMTczLjU4NCAyNzcuODQ5IDE1Ni4yNTIgMjg1LjMyOSAxNTEuMzMzIDI4Ny4zMzNDMTQ0LjM1OSAyOTAuMTc1IDEyNy44NTEgMjk2LjY5MSAxMDYgMjk1LjMzM0M5OC4yOTg2IDI5NC44NTUgNjYuOTMwNiAyOTIuNDYgNDMuMzMzMyAyNjcuMzMzQzM2LjI0NjYgMjU5Ljc4OCAxNy4wMDUzIDIzOS4yOTkgMjIgMjE1LjMzM0MyMi4yNjI2IDIxNC4wNzYgMjYuNTg5MyAxOTQuNzc5IDQzLjMzMzMgMTg2QzQ2LjAzMDYgMTg0LjU4NSA1MS43Nzg3IDE4MS42NiA1OS4zMzMzIDE4MkM3MC4yNzQ3IDE4Mi40OTIgNzguNTY0IDE4OS41NDUgODAuNjY2NiAxOTEuMzMzQzg0Ljg1NDYgMTk0Ljg5NiA4Ni4zNCAxOTcuNjY3IDkyLjY2NjYgMjAyQzk3LjU3NiAyMDUuMzYzIDk5Ljk2NCAyMDUuOTQ0IDEwMiAyMDZDMTA1LjY4MSAyMDYuMTAxIDExMC41OTIgMjA0LjU1NiAxMTIuNjY3IDIwMC42NjdDMTEzLjA0MSAxOTkuOTY1IDExNC40MDkgMTk3LjE1MiAxMTIuNjY3IDE5MS4zMzNDMTA4LjEzOSAxNzYuMjA5IDkxLjA3NDYgMTY5LjA5NyA5MCAxNjguNjY3Qzg5LjU0OTMgMTY4LjQ4NyA4NS4yNTYgMTY3LjIxMyA3Ni42NjY2IDE2NC42NjdDNjYuNDM3MyAxNjEuNjMzIDY1Ljc0OTMgMTYxLjUwNSA2My4zMzMzIDE2MC42NjdDNTkuNTI0IDE1OS4zNDUgNTIuNDc3MyAxNTYuOSA0NiAxNTIuNjY3QzQzLjA5MDcgMTUwLjc2NSAzNC4zMjI2IDE0NC42IDI4LjY2NjYgMTM0QzIwLjE0NTMgMTE4LjAzMiAyMy44NCAxMDEuNjYzIDI0LjY2NjYgOThDMzEuNDQgNjcuOTk2IDYyLjgxMzMgNTMuMTc0NyA3OCA0NkMxMDQuNjE5IDMzLjQyNTMgMTI3LjcyNCAzMy44NDEzIDEzMi42NjcgMzRaIiBmaWxsPSIjRkFGMEU1Ii8+CiAgPC9nPgo8L3N2Zz4=">
 </head>
 <body>
   <header class="hero">
@@ -256,7 +535,7 @@ footer { color: #ffffff; }
   <section id="about">
     <div class="container">
       <h2>About</h2>
-      <p class="lead" style="max-width: 860px;">Shroom is a producer/DJ from Denver crafting a gritty, trippy strain of bass music that lives between breakbeat, deep dubstep, experimental bass, and downtempo. His tracks balance high-energy moments with heady, subtle touches, favoring rhythm-forward sound design, elastic percussion, and wet textures that come alive on big systems. Typical sets move through 90–110 and 140–150 BPM, inviting bodies to feel the low-end while giving the room permission to be themselves—fun, weird, and positive. Influences span Dmtree, Gimmie Gimmie, and Oddly Eazy, alongside a broader pull from nature and everyday atmosphere. Shroom’s focus is simple: build a community anchored in positivity, inclusivity, and mental-health advocacy, and deliver bass music that hits hard while leaving space to breathe.</p>
+      <p class="lead" style="max-width: 946px;">Shroom is a producer/DJ from Denver crafting a gritty, trippy strain of bass music that lives between breakbeat, deep dubstep, experimental bass, and downtempo. His tracks balance high-energy moments with heady, subtle touches, favoring rhythm-forward sound design, elastic percussion, and wet textures that come alive on big systems. Typical sets move through 90–110 and 140–150 BPM, inviting bodies to feel the low-end while giving the room permission to be themselves—fun, weird, and positive. Influences span Dmtree, Gimmie Gimmie, and Oddly Eazy, alongside a broader pull from nature and everyday atmosphere. Shroom’s focus is simple: build a community anchored in positivity, inclusivity, and mental-health advocacy, and deliver bass music that hits hard while leaving space to breathe.</p>
     </div>
   </section>
 
