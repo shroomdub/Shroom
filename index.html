@@ -44,7 +44,7 @@
       text-align: center;
     }
     .tagline { font-family: 'Bungee Shade', system-ui, sans-serif; color: var(--cream); letter-spacing: .6px; }
-    .elevator { font-family: 'Tilt Warp', system-ui, sans-serif; color: var(--icon); letter-spacing: .2px; }
+    .elevator { font-family: 'Tilt Warp', system-ui, sans-serif; color: var(--icon); letter-spacing: .2px;  font-size: clamp(24px, 4.6vw, 36px);}
     .subtle { color: var(--muted); }
     .row { display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:center; }
 
@@ -72,14 +72,14 @@
     .fall-col { position: absolute; top: 0; bottom: 0; width: 20vw; max-width: 180px; }
     .fall-left { left: 0; display: grid; place-items: center; }
     .fall-right { right: 0; display: grid; place-items: center; }
-    .fall-letter svg { width: 160px; height: auto; filter: drop-shadow(0 0 8px rgba(168,85,247,0.45)); }
+    .fall-letter svg { width: min(38vw, 360px); height: auto; filter: drop-shadow(0 0 8px rgba(168,85,247,0.45)); }
     .hidden { opacity: 0 !important; }
 
     /* Sections */
     section { padding: 56px 0; }
     h2 { font-size: clamp(26px, 4.4vw, 44px); margin: 0 0 12px; font-family: 'Chewy', system-ui, sans-serif; color: var(--cream);
       -webkit-text-stroke: 1.5px #000;
-      text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000, 0 2px 0 #000, 2px 0 0 #000, 0 -2px 0 #000, -2px 0 0 #000;
+      text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000, 0 2px 0 #000, 2px 0 0 #000, 0 -2px 0 #000, -2px 0 0 #000, 0 0 16px rgba(168,85,247,.65), 0 0 34px rgba(236,72,153,.4);
     }
     p.lead { font-size: clamp(16px, 2.6vw, 18px); margin: 10px auto; max-width: 860px; color: var(--icon); }
     .grid { display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
@@ -98,7 +98,7 @@
 
     /* Rebuild mini-logo above footer copyright */
     #rebuild-slot { display:grid; place-items:center; height: 120px; margin-top: -20px; margin-bottom: 10px; }
-    #mini-logo { width: 520px; max-width: 80vw; height:auto; opacity: 0; transition: opacity .6s ease; }
+    #mini-logo { width: 520px; max-width: min(92vw, 980px); height:auto; opacity: 0; transition: opacity .6s ease; }
     #mini-logo.rebuild { opacity: 1; }
     #mini-logo.rebuild .letter { transform: translateX(0) translateY(0) scale(1); transition: transform 900ms cubic-bezier(.2,.8,.2,1); }
     #mini-logo .letter[data-side="L"] { transform: translateX(-40vw) translateY(10vh) scale(0.9); }
@@ -152,7 +152,7 @@
 <path id="Vector_2" d="M962 55.3334C969.999 55.4854 976.943 59.7254 980.667 62.0001C991.728 68.7534 997.28 77.9641 1002 86.0001C1009.68 99.0774 1014.35 113.447 1018 124.667C1022.08 137.204 1023.16 143.153 1026 143.333C1029.62 143.563 1031.98 134.137 1038 119.333C1045.95 99.7787 1053.44 81.8627 1068.67 68.6667C1075.01 63.1721 1083.03 56.2241 1094 56.6667C1107.86 57.2254 1117.67 69.2241 1119.33 71.3334C1122.69 75.6001 1124.73 80.1667 1127.33 86.0001C1130.04 92.0654 1131.51 96.8587 1132.67 100.667C1135.69 110.647 1137.01 118.597 1138 124.667C1139.51 133.983 1140.67 144.667 1140.67 144.667C1140.67 144.667 1144.8 159.351 1148.67 172.667C1154.69 193.388 1154.35 191.116 1155.33 195.333C1156.62 200.812 1159.27 212.469 1159.33 227.333C1159.38 238.092 1159.27 253.48 1151.33 270C1148.19 276.531 1144.67 283.623 1136.67 288.667C1128.92 293.549 1121.12 293.899 1118 294C1114.69 294.108 1105.84 293.984 1096.67 288.667C1089.24 284.363 1085.32 278.82 1082 274C1072.48 260.195 1070.41 246.403 1070 243.333C1068.86 234.899 1070.18 232.88 1074 198C1075.71 182.383 1075.96 178.12 1075.33 178C1074.44 177.828 1072.39 186.293 1066 207.333C1060.35 225.952 1061.17 221.881 1059.33 228.667C1056.09 240.644 1053.96 251.696 1047.33 263.333C1046.22 265.288 1044.72 267.717 1042 270C1035.22 275.689 1026.85 275.464 1024.67 275.333C1015.09 274.757 1009.02 269.007 1007.33 267.333C1002.33 262.376 1000.62 256.787 999.333 252.667C994.505 240.917 990.981 231.271 988.667 224.667C985.872 216.693 984.249 211.476 980.667 202C977.783 194.372 972.469 180.319 971.333 180.667C970.5 180.921 972.761 188.672 975.333 203.333C977.672 216.661 978.225 225.996 979.333 244.667C979.561 248.499 979.839 253.941 978 260.667C977.636 261.996 976.225 266.909 972.667 272.667C969.824 277.265 963.487 287.561 951.333 291.333C945.829 293.041 941.256 292.791 939.333 292.667C921.467 291.52 908.681 275.104 904.667 270C874.599 231.776 891.223 131.999 926 82.0001C932.22 73.0574 945.121 55.0121 962 55.3334Z" fill="#FAF0E5"/>
 </g></g>
       </svg>
-      <h1 class="tagline" style="font-size:clamp(30px,6vw,64px); margin:14px 0 6px; text-wrap:balance;">Grimy, wet, trippy bass from Denver.</h1>
+      <h1 class="tagline" style="font-size:clamp(21px, 4.2vw, 45px); margin:14px 0 6px; text-wrap:balance;">Grimy, wet, trippy bass from Denver.</h1>
       <p class="elevator" style="max-width:880px; margin: 6px auto 6px;">Spread love, not hate</p>
 
       <div class="social-icons" aria-label="Social links">
@@ -311,9 +311,7 @@
         rightSlots.forEach((el, i) => { el.style.transform = 'translate3d(0,' + (y + offsets[i]) + 'px,0)'; });
 
         // Trigger mini-logo rebuild near the very end
-        if (p > 0.98) {
-          miniLogo.classList.add('rebuild');
-        } else {
+        if (p > 0.90 || (window.innerHeight + (window.scrollY||window.pageYOffset) >= document.body.scrollHeight - 10)) { miniLogo.classList.add('rebuild'); } else {
           miniLogo.classList.remove('rebuild');
         }
       }
