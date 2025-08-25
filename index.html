@@ -7,7 +7,7 @@
   <title>Shroom Music</title>
   <meta name="description" content="Spread love, not hate">
   <!-- Fonts: Bungee Shade (tagline), Chewy (section headers), Tilt Warp (elevator) -->
-  <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Chewy&family=Tilt+Warp&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Chewy&family=Tilt+Warp&display=swap&family=Rock+Salt" rel="stylesheet">
   <style>
     :root {
       --bg-top: #1f0f2e;
@@ -43,8 +43,13 @@
       padding: 72px 0 90px;
       text-align: center;
     }
-    .tagline { font-family: 'Bungee Shade', system-ui, sans-serif; color: var(--cream); letter-spacing: .6px; }
-    .elevator { font-family: 'Tilt Warp', system-ui, sans-serif; color: var(--icon); letter-spacing: .2px;  font-size: clamp(24px, 4.6vw, 36px);}
+    .tagline { font-family: 'Chewy', system-ui, sans-serif; color: var(--cream); letter-spacing: .6px;
+      -webkit-text-stroke: 1.5px #000;
+      text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000,
+                   0 2px 0 #000, 2px 0 0 #000, 0 -2px 0 #000, -2px 0 0 #000,
+                   0 0 16px rgba(168,85,247,.65), 0 0 34px rgba(236,72,153,.4);
+    }
+    .elevator { font-family: 'Rock Salt', system-ui, sans-serif; color: var(--icon); letter-spacing: .2px;  font-size: clamp(24px, 4.6vw, 36px);}
     .subtle { color: var(--muted); }
     .row { display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:center; }
 
@@ -69,10 +74,10 @@
 
     /* Side fall layer (scroll-throttled) */
     #fall-layer { position: fixed; inset: 0; pointer-events: none; z-index: 10; opacity: 0; transition: opacity .25s ease; }
-    .fall-col { position: absolute; top: 0; bottom: 0; width: 20vw; max-width: 180px; }
-    .fall-left { left: 0; display: grid; place-items: center; }
-    .fall-right { right: 0; display: grid; place-items: center; }
-    .fall-letter svg { width: min(38vw, 360px); height: auto; filter: drop-shadow(0 0 8px rgba(168,85,247,0.45)); }
+    .fall-col { position: absolute; top: 0; bottom: 0; width: 24vw; max-width: 260px; }
+    .fall-left { left: 3vw; display: grid; place-items: center; }
+    .fall-right { right: 3vw; display: grid; place-items: center; }
+    .fall-letter svg { width: min(42vw, 420px); height: auto; filter: drop-shadow(0 0 8px rgba(168,85,247,0.45)); }
     .hidden { opacity: 0 !important; }
 
     /* Sections */
@@ -99,7 +104,7 @@
     /* Rebuild mini-logo above footer copyright */
     #rebuild-slot { display:grid; place-items:center; height: 120px; margin-top: -20px; margin-bottom: 10px; }
     #mini-logo { width: 520px; max-width: min(92vw, 980px); height:auto; opacity: 0; transition: opacity .6s ease; }
-    #mini-logo.rebuild { opacity: 1; }
+    #mini-logo.rebuild { opacity: 1; transition-delay: .1s; }
     #mini-logo.rebuild .letter { transform: translateX(0) translateY(0) scale(1); transition: transform 900ms cubic-bezier(.2,.8,.2,1); }
     #mini-logo .letter[data-side="L"] { transform: translateX(-40vw) translateY(10vh) scale(0.9); }
     #mini-logo .letter[data-side="R"] { transform: translateX(40vw) translateY(10vh) scale(0.9); }
@@ -269,7 +274,7 @@
       });
     })();
 
-    // Scroll-linked falling logic with rebuild trigger
+    // Scroll-linked falling logic with peel + rebuild
     (function() {
       const fallLayer = document.getElementById('fall-layer');
       const hero = document.querySelector('header.hero');
@@ -277,6 +282,8 @@
       const leftSlots = Array.from(document.querySelectorAll('.fall-left .fall-letter'));
       const rightSlots = Array.from(document.querySelectorAll('.fall-right .fall-letter'));
       const miniLogo = document.getElementById('mini-logo');
+      const logo = document.getElementById('logo-root');
+      const logoLetters = Array.from(logo.querySelectorAll('.letter'));
       let ticking = false;
 
       function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
@@ -296,22 +303,40 @@
 
         const heroBottomAbs = docY + rectHero.bottom;
         const footerTopAbs = footer.getBoundingClientRect().top + docY;
-        const start = heroBottomAbs - vh * 0.25; // start a bit after leaving hero
-        const end = footerTopAbs - vh * 0.8;     // finish before footer is fully in view
+        const start = heroBottomAbs - vh * 0.25;
+        const end = footerTopAbs - vh * 0.8;
         const p = clamp((docY - start) / (end - start), 0, 1);
 
-        // Toggle side fall visibility
-        fallLayer.style.opacity = p > 0 ? '1' : '0';
+        // Side fall visibility
+        fallLayer.style.opacity = p > 0 ? String(Math.min(1, p + 0.1)) : '0';
         fallLayer.classList.toggle('hidden', p === 0);
 
-        // Translate the side letters down at a throttled rate
+        // Translate side letters down at a throttled rate
         const y = p * (vh - 160);
         const offsets = [ -60, 0, 60 ];
         leftSlots.forEach((el, i) => { el.style.transform = 'translate3d(0,' + (y + offsets[i]) + 'px,0)'; });
         rightSlots.forEach((el, i) => { el.style.transform = 'translate3d(0,' + (y + offsets[i]) + 'px,0)'; });
 
-        // Trigger mini-logo rebuild near the very end
-        if (p > 0.90 || (window.innerHeight + (window.scrollY||window.pageYOffset) >= document.body.scrollHeight - 10)) { miniLogo.classList.add('rebuild'); } else {
+        // Peel effect on the original logo: move letters outward & fade while p grows 0..0.7
+        const peel = clamp(p / 0.7, 0, 1);
+        logoLetters.forEach(el => {
+          const inner = el.innerHTML;
+          const idMatch = inner.match(/id="(S|H|R|O1|O2|M)"/);
+          const id = idMatch ? idMatch[1] : '';
+          const side = (id === 'S' || id === 'H' || id === 'R') ? -1 : +1;
+          const tx = side * peel * 140; // px
+          const ty = peel * 40;
+          const op = 1 - peel * 0.85;
+          el.style.animation = peel > 0 ? 'none' : '';
+          el.style.transform = 'translate(' + tx + 'px,' + ty + 'px)';
+          el.style.opacity = String(op);
+        });
+
+        // Trigger mini-logo rebuild near end or on reaching page bottom
+        const atBottom = (window.innerHeight + docY >= document.body.scrollHeight - 10);
+        if (p > 0.90 || atBottom) {
+          miniLogo.classList.add('rebuild');
+        } else {
           miniLogo.classList.remove('rebuild');
         }
       }
