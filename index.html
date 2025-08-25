@@ -157,6 +157,33 @@ header.hero { background: transparent !important; }
       filter: drop-shadow(0 0 14px rgba(168,85,247,.65)) drop-shadow(0 0 26px rgba(236,72,153,.45));
     }
 
+
+/* === Overrides for requested tweaks === */
+
+/* About body: bold, keep existing size/color */
+p.lead { font-weight: 700; }
+
+/* Contact buttons: wider & outline by default */
+.contact-buttons .btn { padding: 14px 28px; min-width: 260px; }
+
+/* Default outline style: pink text + border; Chewy outline already in baseline */
+.btn.outline { background: transparent; color: var(--icon); border: 3px solid var(--icon); }
+
+/* Hover: fill pink, flip text to white, keep black text outline and glow */
+.contact-buttons .btn.outline:hover {
+  background: var(--icon);
+  color: #ffffff;
+  border-color: var(--icon);
+  -webkit-text-stroke: 1.2px #000;
+  filter: drop-shadow(0 0 14px rgba(168,85,247,.65)) drop-shadow(0 0 26px rgba(236,72,153,.45));
+}
+
+/* Keep social icons/brand pink */
+:root { --icon: #f3158f; }
+
+/* Footer copyright text white (if not already) */
+footer { color: #ffffff; }
+
 </style>
 </head>
 <body>
@@ -237,7 +264,7 @@ header.hero { background: transparent !important; }
     <div class="container">
       <h2>Contact</h2>
       <div class="contact-buttons">
-        <a class="btn solid" href="mailto:mgmt@shroom.music">Press/Inquiries</a>
+        <a class="btn outline" href="mailto:mgmt@shroom.music">Press/Inquiries</a>
         <a class="btn outline" href="mailto:shroom@lichlightmanagment.com">Booking</a>
       </div>
     </div>
