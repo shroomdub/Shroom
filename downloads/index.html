@@ -132,53 +132,50 @@
 
   <footer class="container" style="text-align:center;opacity:.85;font-size:14px;margin-top:28px">© <span id="year"></span> Shroom. All rights reserved.</footer>
 
-<script>
 
+<script>
 (function(){
   const storeKey = "dlUnlocked";
   const pendKey  = "dlPending";
   const DELAY_MS = 15000; // delay before unlock (ms)
-  const unlocked = JSON.parse(localStorage.getItem(storeKey) || "{}");
-  const pending  = JSON.parse(localStorage.getItem(pendKey)  || "{}");
 
   function showToast(msg){
     let t = document.getElementById('toast');
     if(!t){
       t = document.createElement('div');
       t.id = 'toast';
-      t.textContent = msg || 'Download unlocked';
       document.body.appendChild(t);
-    }else{
-      t.textContent = msg || 'Download unlocked';
     }
+    // ensure visible (in case inline styles had display:none)
+    t.style.display = 'block';
+    t.textContent = msg || 'Download unlocked';
     t.classList.add('show');
     setTimeout(()=>t.classList.remove('show'), 2200);
   }
 
-  // Reveal all unlocked links immediately (persisted)
-  Object.keys(unlocked).forEach(id => {
-    if (unlocked[id] === 1) {
-      const link = document.getElementById(id + '-link');
-      if (link) link.style.display = 'inline-block';
-    }
-  });
+  // Reveal any previously unlocked links (persisted)
+  (function revealUnlocked(){
+    const unlocked = JSON.parse(localStorage.getItem(storeKey) || "{}");
+    Object.keys(unlocked).forEach(id => {
+      if (unlocked[id] === 1) {
+        const link = document.getElementById(id + '-link');
+        if (link) {
+          link.style.display = 'inline-block';
+          link.hidden = false;
+        }
+      }
+    });
+  })();
 
   // Mark gate as pending on Follow click
-  document.querySelectorAll('a[data-gate][href*="instagram.com/shroomdub"]').forEach(a => {
+  document.querySelectorAll('a[data-gate][href*="instagram.com"]').forEach(a => {
     a.addEventListener('click', () => {
       const id = a.getAttribute('data-gate');
+      const pending = JSON.parse(localStorage.getItem(pendKey) || "{}");
       pending[id] = Date.now();
       localStorage.setItem(pendKey, JSON.stringify(pending));
     });
   });
-
-  function unlockPending(){
-  const storeKey = "dlUnlocked";
-  const pendKey  = "dlPending";
-  const DELAY    = typeof DELAY_MS !== 'undefined' ? DELAY_MS : 6000;
-
-  const pend   = JSON.parse(localStorage.getItem(pendKey) || "{}");
-  let changed  = false;
 
   function doUnlock(id){
     const link = document.getElementById(id + '-link');
@@ -189,66 +186,44 @@
       link.style.display = 'inline-block';
       link.hidden = false;
     }
-    if (typeof showToast === 'function') showToast('Thanks for following — download unlocked!');
+    showToast('Thanks for following — download unlocked!');
   }
 
-  function scheduleUnlock(id, clickedAt){
-    const elapsed   = Date.now() - clickedAt;
-    const remaining = Math.max(0, DELAY - elapsed);
-    if (remaining === 0) {
-      doUnlock(id);
-    } else {
-      if (typeof showToast === 'function') showToast(`Unlocking in ${Math.ceil(remaining/1000)}s…`);
-      setTimeout(() => doUnlock(id), remaining);
-    }
-  }
+  function unlockPending(){
+    const pending = JSON.parse(localStorage.getItem(pendKey) || "{}");
+    let changed   = false;
 
-  Object.keys(pend).forEach(id => {
-    if (Date.now() - pend[id] < 2 * 60 * 60 * 1000) { // within 2 hours
-      scheduleUnlock(id, pend[id]);
-      delete pend[id];   // prevent double-scheduling
-      changed = true;
-    } else {
-      delete pend[id];   // stale pending
-      changed = true;
-    }
-  });
-
-  if (changed) {
-    localStorage.setItem(pendKey, JSON.stringify(pend));
-  }
-}
-");
-    let changed = false;
-    Object.keys(pend).forEach(id => {
-      if (now - pend[id] < 2 * 60 * 60 * 1000) { // within 2 hours
-        unlocked[id] = 1;
-        delete pend[id];
-        changed = true;
-        const link = document.getElementById(id + '-link');
-        if (link) link.style.display = 'inline-block';
-        showToast('Thanks for following — download unlocked!');
-      } else {
-        delete pend[id];
-        changed = true;
+    Object.keys(pending).forEach(id => {
+      const clickedAt = pending[id];
+      // within 2 hours
+      if (Date.now() - clickedAt < 2 * 60 * 60 * 1000) {
+        const remaining = Math.max(0, DELAY_MS - (Date.now() - clickedAt));
+        if (remaining === 0) {
+          doUnlock(id);
+        } else {
+          showToast(`Unlocking in ${Math.ceil(remaining/1000)}s…`);
+          setTimeout(() => doUnlock(id), remaining);
+        }
       }
+      delete pending[id];
+      changed = true;
     });
+
     if (changed) {
-      localStorage.setItem(pendKey, JSON.stringify(pend));
-      localStorage.setItem(storeKey, JSON.stringify(unlocked));
+      localStorage.setItem(pendKey, JSON.stringify(pending));
     }
   }
 
   window.addEventListener('focus', unlockPending);
-  document.addEventListener('visibilitychange', function(){
+  document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') unlockPending();
   });
+  window.addEventListener('pageshow', unlockPending);
 })();
-window.addEventListener("pageshow", unlockPending);
-
 </script>
 
-<div id="toast" aria-live="polite" aria-atomic="true" style="display:none"></div>
+
+<div id="toast" aria-live="polite" aria-atomic="true"></div>
 
 <script>
 (function(){
