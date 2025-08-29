@@ -1,469 +1,623 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shroom Music</title>
-  <meta name="description" content="Spread love, not hate">
-  <!-- Fonts: Chewy (tagline/headers), Rock Salt (elevator) -->
-  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Rock+Salt&display=swap&family=Quicksand:wght@400;700" rel="stylesheet">
-  <style>
-    :root {
-      --bg-top: #1A0F3B;
-      --bg-mid: #7011a2;
-      --bg-bot: #f3158f;
-      --text: #ffffff;
-      --muted: rgba(255,255,255,0.72);
-      --icon: #f3158f;
-      --icon-bright: #e879f9;
-      --cream: #F5EFE6;
-      --lime: #97c935;
-      --btn-radius: 12px;
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0; color: var(--text); background: var(--bg-bot);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans';
-      line-height: 1.6;
-    }
-    a { color: var(--text); text-decoration: none; }
-    .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shroom Music</title>
+    <meta name="description" content="Spread love, not hate">
+    <!-- Fonts: Chewy (tagline/headers), Rock Salt (elevator) -->
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Rock+Salt&display=swap&family=Quicksand:wght@400;700" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" sizes="any" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320"><g id="S"><path d="M30 167.333C24.92 163.665 15.2853 155.661 8.66667 142C7.46267 139.516 1.62533 127.071 2 110C2.70133 78.0973 24.5187 56.708 30 51.3333C43.3987 38.1973 56.8453 32.7053 70 27.3333C83.2893 21.9066 107.499 12.3453 139.333 15.3333C151.004 16.428 177.405 19.244 200.667 38C205.449 41.856 216.791 51.2 224.667 67.3333C229.823 77.8947 231.031 86.2213 231.333 88.6667C232.029 94.2827 232.919 101.46 230 110C226.46 120.36 219.515 126.295 216.667 128.667C209.024 135.031 201.369 137.12 198 138C196.215 138.467 188.981 140.251 179.333 139.333C169.267 138.376 162.125 135.005 162 135.333C161.753 135.984 192.372 142.576 211.333 164.667C217.421 171.76 221.241 179.281 222 180.667C224.065 184.435 228.713 193.816 230 206C231.589 221.051 227.239 232.685 224.667 239.333C219.408 252.924 212.052 261.433 203.333 271.333C197.376 278.099 187.563 289.243 174 298C136.013 322.528 91.56 313.519 82 311.333C68.952 308.351 46.6 302.931 27.3333 283.333C20.0293 275.905 -1.22933 254.281 0.666667 222C2.54 190.111 25.656 170.825 30 167.333Z" fill="%23000"/><path d="M132.667 34C144.419 34.3787 168.937 35.168 190 52.6667C196.343 57.936 214.797 73.268 214 95.3333C213.905 97.956 213.373 112.701 202 122C188.476 133.057 166.261 130.981 158 122C156.191 120.033 153.889 116.472 148.667 112.667C146.124 110.815 142.843 108.472 138 107.333C134.971 106.621 128.847 105.181 123.333 108.667C120.373 110.537 116.343 114.616 116.667 119.333C116.995 124.109 121.635 127.327 126 130C140.043 138.599 149.403 140.423 159.333 144.667C175.481 151.567 185.737 161.701 191.333 167.333C198.383 174.429 205.624 181.719 210 194C215.083 208.263 213.155 220.532 212.667 223.333C209.763 239.981 199.944 250.259 190 260.667C173.584 277.849 156.252 285.329 151.333 287.333C144.359 290.175 127.851 296.691 106 295.333C98.2986 294.855 66.9306 292.46 43.3333 267.333C36.2466 259.788 17.0053 239.299 22 215.333C22.2626 214.076 26.5893 194.779 43.3333 186C46.0306 184.585 51.7787 181.66 59.3333 182C70.2747 182.492 78.564 189.545 80.6666 191.333C84.8546 194.896 86.34 197.667 92.6666 202C97.576 205.363 99.964 205.944 102 206C105.681 206.101 110.592 204.556 112.667 200.667C113.041 199.965 114.409 197.152 112.667 191.333C108.139 176.209 91.0746 169.097 90 168.667C89.5493 168.487 85.256 167.213 76.6666 164.667C66.4373 161.633 65.7493 161.505 63.3333 160.667C59.524 159.345 52.4773 156.9 46 152.667C43.0907 150.765 34.3226 144.6 28.6666 134C20.1453 118.032 23.84 101.663 24.6666 98C31.44 67.996 62.8133 53.1747 78 46C104.619 33.4253 127.724 33.8413 132.667 34Z" fill="%23FAF0E5"/></g></svg>' />
+    <style>
+             :root {
+                 --bg-top: #1A0F3B;
+                 --bg-mid: #7011a2;
+                 --bg-bot: #f3158f;
+                 --text: #ffffff;
+                 --muted: rgba(255,255,255,0.72);
+                 --icon: #f3158f;
+                 --icon-bright: #e879f9;
+                 --cream: #F5EFE6;
+                 --lime: #97c935;
+                 --btn-radius: 12px;
+             }
 
-    /* Buttons */
-    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding: 12px 20px; border-radius: var(--btn-radius); font-weight:600; }
-    .btn.outline { background: transparent; color: var(--lime); border:3px solid var(--icon); }
-    .btn:hover { filter: drop-shadow(0 0 12px rgba(168,85,247,0.55)) drop-shadow(0 0 20px rgba(236,72,153,0.35)); }
-    .btn.outline:hover { color: var(--icon-bright); border-color: var(--icon-bright); }
+             * {
+                 box-sizing: border-box;
+             }
 
-    header.hero {
-      position: relative;
-      overflow: visible;
-      background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 22%, var(--bg-mid) 22%, var(--bg-mid) 78%, var(--bg-bot) 92%, var(--bg-bot) 100%), var(--bg-mid), var(--bg-bot));
-      padding: 72px 0 90px;
-      text-align: center;
-    }
-    .tagline{
-      font-family:'Chewy',system-ui,sans-serif;
-      color:var(--cream);
-      letter-spacing:.6px;
-      -webkit-text-stroke:1.5px #000;
-      text-shadow:
-        1px 1px 0 #000,-1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000,
-        0 2px 0 #000,2px 0 0 #000,0 -2px 0 #000,-2px 0 0 #000,
-        0 0 16px rgba(168,85,247,.65),0 0 34px rgba(236,72,153,.4);
-      font-size: clamp(21px, 4.2vw, 45px);
-      margin:14px 0 6px; text-wrap:balance;
-    }
-    .elevator{
-      font-family:'Rock Salt',system-ui,sans-serif;
-      color:var(--lime);
-      font-size: clamp(24px, 4.6vw, 36px);
-      max-width: 880px; margin: 6px auto 6px;
-    }
-    .subtle { color: var(--muted); }
-    .row { display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:center; }
+             html, body {
+                 height: 100%;
+             }
 
-    /* Logo */
-    svg#logo-root { width: min(92vw, 980px); height:auto; display:block; margin: 0 auto; overflow: visible; }
-    .glow { filter: drop-shadow(0 0 14px rgba(168,85,247,0.55)) drop-shadow(0 0 26px rgba(236,72,153,0.35)); }
+             body {
+                 margin: 0;
+                 color: var(--text);
+                 background: var(--bg-bot);
+                 font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans';
+                 line-height: 1.6;
+             }
 
-    /* Independent float motion per letter */
-    @keyframes floaty {
-      0%   { transform: translate3d(var(--jx,0px), 0px, 0) rotate(var(--rot,0deg)); }
-      20%  { transform: translate3d(var(--jx,0px), calc(-1 * var(--amp,6px)), 0) rotate(calc(-1 * var(--rot,0deg))); }
-      40%  { transform: translate3d(var(--jx,0px), calc( 0.6 * var(--amp,6px)), 0) rotate(calc( 0.6 * var(--rot,0deg))); }
-      60%  { transform: translate3d(var(--jx,0px), calc(-0.8 * var(--amp,6px)), 0) rotate(calc(-0.4 * var(--rot,0deg))); }
-      80%  { transform: translate3d(var(--jx,0px), calc( 0.3 * var(--amp,6px)), 0) rotate(calc( 0.2 * var(--rot,0deg))); }
-      100% { transform: translate3d(var(--jx,0px), 0px, 0) rotate(var(--rot,0deg)); }
-    }
-    .letter { animation: floaty var(--dur, 9s) ease-in-out infinite; animation-delay: var(--delay, -1s); transform-origin: 50% 50%; will-change: transform; }
-    #logo-root .letter[data-letter="S"] { --jx:-3px; --rot:-1.1deg; --amp:8px;  --dur:8.6s; --delay:-0.7s; }
-    #logo-root .letter[data-letter="H"] { --jx: 2px; --rot: 1.4deg; --amp:6.5px;--dur:9.2s; --delay:-1.2s; }
-    #logo-root .letter[data-letter="R"] { --jx:-2px; --rot: 1.8deg; --amp:8.5px;--dur:8.9s; --delay:-0.3s; }
-    #logo-root .letter[data-letter="O1"]{ --jx: 3px; --rot:-1.6deg; --amp:7.2px;--dur:9.1s; --delay:-1.5s; }
-    #logo-root .letter[data-letter="O2"]{ --jx: 1px; --rot: 1.0deg; --amp:5.8px;--dur:9.7s; --delay:-0.9s; }
-    #logo-root .letter[data-letter="M"] { --jx:-3px; --rot:-1.3deg; --amp:7.9px;--dur:8.7s; --delay:-1.6s; }
+             a {
+                 color: var(--text);
+                 text-decoration: none;
+             }
 
-    /* Sections */
-    section { padding: 56px 0; }
-    h2 {
-      font-size: clamp(26px, 4.4vw, 44px); margin: 0 0 12px;
-      font-family:'Chewy',system-ui,sans-serif; color:var(--cream);
-      -webkit-text-stroke:1.5px #000;
-      text-shadow:
-        1px 1px 0 #000,-1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000,
-        0 2px 0 #000,2px 0 0 #000,0 -2px 0 #000,-2px 0 0 #000,
-        0 0 16px rgba(168,85,247,.65),0 0 34px rgba(236,72,153,.4);
-    }
-    p.lead {  color: var(--cream); font-size: clamp(24px, 3.9vw, 27px); margin: 10px auto; max-width: 860px;  }
-    .grid { display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-    .card { background: rgba(255,255,255,0.06); border:0; border-radius:16px; padding:14px; 
-    filter: drop-shadow(0 0 14px rgba(168,85,247,.55))
-            drop-shadow(0 0 24px rgba(236,72,153,.35));
-}
-    iframe { width:100%; height: 172px; border:0; border-radius: 12px; }
-    
-    .card:hover {
-      filter: drop-shadow(0 0 18px rgba(168,85,247,.65))
-              drop-shadow(0 0 30px rgba(236,72,153,.45));
-    }
-footer { padding: 50px 0; text-align:center; color: #ffffff; }
+             .container {
+                 max-width: 1120px;
+                 margin: 0 auto;
+                 padding: 0 20px;
+             }
 
-    /* Social icons — 2x larger */
-    .social-icons { display:flex; gap:22px; align-items:center; justify-content:center; margin-top: 18px; }
-    .icon-link { display:inline-flex; align-items:center; justify-content:center; width: 80px; height: 80px; border-radius: var(--btn-radius); }
-    .icon-link svg { width: 56px; height: 56px; fill: var(--icon); transition: transform .2s ease, filter .2s ease, fill .2s ease; }
-    .icon-link:hover svg { transform: translateY(-2px) scale(1.06); filter: drop-shadow(0 0 14px rgba(168,85,247,0.55)) drop-shadow(0 0 22px rgba(236,72,153,0.35)); fill: var(--icon-bright); }
+             /* Buttons */
+             .btn {
+                 display: inline-flex;
+                 align-items: center;
+                 justify-content: center;
+                 gap: 8px;
+                 padding: 12px 20px;
+                 border-radius: var(--btn-radius);
+                 font-weight: 600;
+             }
 
-    /* Contact buttons centered */
-    .contact-buttons { display:flex; flex-wrap:wrap; gap: 42px; align-items:center; justify-content: center; }
+                 .btn.outline {
+                     background: transparent;
+                     color: var(--lime);
+                     border: 3px solid var(--icon);
+                 }
 
-    /* Brandlet mini-logo above footer (larger box to avoid clipping) */
-    #brandlet { display:grid; place-items:center; margin: 24px 0 10px; min-height: 120px; overflow: visible; }
-    #mini-logo { height: 60px; width:auto; overflow: visible; }
-    .mletter { transform-box: fill-box; transform-origin: 50% 50%; animation: brand-bounce 2.6s ease-in-out infinite; animation-delay: var(--delay); }
-    .mletter { transform: translateX(var(--gap)); }
-    @keyframes brand-bounce {
-      0%, 100% { transform: translateX(var(--gap)) translateY(0); }
-      20%      { transform: translateX(var(--gap)) translateY(-10px); }
-      50%      { transform: translateX(var(--gap)) translateY(0); }
-      80%      { transform: translateX(var(--gap)) translateY(-5px); }
-    }
-  
-/* --- Gradient override to ensure a smooth top->bottom blend --- */
-html { background: var(--bg-mid); } /* fallback */
-body {
-  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 100%);
-  background-repeat: no-repeat;
-}
-header.hero { background: transparent !important; }
-#contact { background: transparent !important; }
-/* --- End override --- */
+                 .btn:hover {
+                     filter: drop-shadow(0 0 12px rgba(168,85,247,0.55)) drop-shadow(0 0 20px rgba(236,72,153,0.35));
+                 }
 
+                 .btn.outline:hover {
+                     color: var(--icon-bright);
+                     border-color: var(--icon-bright);
+                 }
 
-    /* Contact buttons: filled pink with Chewy font, outlined + glow */
-    .btn.solid { background: var(--icon); color: var(--cream); border: 0; }
-    .contact-buttons .btn {
-      font-family:'Chewy',system-ui,sans-serif;
-      -webkit-text-stroke:1.2px #000;
-      text-shadow:
-        1px 1px 0 #000,-1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000,
-        0 2px 0 #000,2px 0 0 #000,0 -2px 0 #000,-2px 0 0 #000,
-        0 0 12px rgba(168,85,247,.55),0 0 22px rgba(236,72,153,.35);
-      filter: drop-shadow(0 0 10px rgba(168,85,247,.45)) drop-shadow(0 0 18px rgba(236,72,153,.35));
-    }
-    .contact-buttons .btn:hover {
-      filter: drop-shadow(0 0 14px rgba(168,85,247,.65)) drop-shadow(0 0 26px rgba(236,72,153,.45));
-    }
+             header.hero {
+                 position: relative;
+                 overflow: visible;
+                 background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-top) 22%, var(--bg-mid) 22%, var(--bg-mid) 78%, var(--bg-bot) 92%, var(--bg-bot) 100%), var(--bg-mid), var(--bg-bot));
+                 padding: 72px 0 90px;
+                 text-align: center;
+             }
 
+             .tagline {
+                 font-family: 'Chewy',system-ui,sans-serif;
+                 color: var(--cream);
+                 letter-spacing: .6px;
+                 -webkit-text-stroke: 1.5px #000;
+                 text-shadow: 1px 1px 0 #000,-1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000, 0 2px 0 #000,2px 0 0 #000,0 -2px 0 #000,-2px 0 0 #000, 0 0 16px rgba(168,85,247,.65),0 0 34px rgba(236,72,153,.4);
+                 font-size: clamp(21px, 4.2vw, 45px);
+                 margin: 14px 0 6px;
+                 text-wrap: balance;
+             }
 
-/* === Overrides for requested tweaks === */
+             .elevator {
+                 font-family: 'Rock Salt',system-ui,sans-serif;
+                 color: var(--lime);
+                 font-size: clamp(24px, 4.6vw, 36px);
+                 max-width: 880px;
+                 margin: 6px auto 6px;
+             }
 
-/* About body: bold, keep existing size/color */
-p.lead { font-weight: 700; }
+             .subtle {
+                 color: var(--muted);
+             }
 
-/* Contact buttons: wider & outline by default */
-.contact-buttons .btn { padding: 14px 28px; min-width: 260px; }
+             .row {
+                 display: flex;
+                 flex-wrap: wrap;
+                 gap: 16px;
+                 align-items: center;
+                 justify-content: center;
+             }
 
-/* Default outline style: pink text + border; Chewy outline already in baseline */
-.btn.outline { background: transparent; color: var(--lime); border: 3px solid var(--icon); }
+             /* Logo */
+             svg#logo-root {
+                 width: min(92vw, 980px);
+                 height: auto;
+                 display: block;
+                 margin: 0 auto;
+                 overflow: visible;
+             }
 
-/* Hover: fill pink, flip text to white, keep black text outline and glow */
-.contact-buttons .btn.outline:hover {
-  background: var(--icon);
-  color: #ffffff;
-  border-color: var(--icon);
-  -webkit-text-stroke: 1.2px #000;
-  filter: drop-shadow(0 0 14px rgba(168,85,247,.65)) drop-shadow(0 0 26px rgba(236,72,153,.45));
-}
+             .glow {
+                 filter: drop-shadow(0 0 14px rgba(168,85,247,0.55)) drop-shadow(0 0 26px rgba(236,72,153,0.35));
+             }
 
-/* Keep social icons/brand pink */
-:root { --icon: #f3158f; }
+             /* Independent float motion per letter */
+             @keyframes floaty {
+                 0% {
+                     transform: translate3d(var(--jx,0px), 0px, 0) rotate(var(--rot,0deg));
+                 }
 
-/* Footer copyright text white (if not already) */
-footer { color: #ffffff; }
+                 20% {
+                     transform: translate3d(var(--jx,0px), calc(-1 * var(--amp,6px)), 0) rotate(calc(-1 * var(--rot,0deg)));
+                 }
 
+                 40% {
+                     transform: translate3d(var(--jx,0px), calc( 0.6 * var(--amp,6px)), 0) rotate(calc( 0.6 * var(--rot,0deg)));
+                 }
 
-/* === On-page tweaks (appended) === */
+                 60% {
+                     transform: translate3d(var(--jx,0px), calc(-0.8 * var(--amp,6px)), 0) rotate(calc(-0.4 * var(--rot,0deg)));
+                 }
 
-/* Move elevator down a bit & add depth */
-.elevator {
-  margin: 24px auto 6px;
-  text-shadow:
-    1px 1px 0 #000,
-    -1px 1px 0 #000,
-    1px -1px 0 #000,
-    -1px -1px 0 #000,
-    0 0 14px rgba(168,85,247,.45),
-    0 0 24px rgba(236,72,153,.35);
-}
+                 80% {
+                     transform: translate3d(var(--jx,0px), calc( 0.3 * var(--amp,6px)), 0) rotate(calc( 0.2 * var(--rot,0deg)));
+                 }
 
-/* Add subtle depth to About text */
-p.lead {
-  text-shadow:
-    0.5px 0.5px 0 #000,
-    -0.5px 0.5px 0 #000,
-    0.5px -0.5px 0 #000,
-    -0.5px -0.5px 0 #000,
-    0 0 10px rgba(168,85,247,.35);
-}
+                 100% {
+                     transform: translate3d(var(--jx,0px), 0px, 0) rotate(var(--rot,0deg));
+                 }
+             }
 
-/* Icon sizing adjustments with alignment-preserving transforms */
-.social-icons a[aria-label="SoundCloud"] svg {
-  transform: scale(1.5);
-  transform-origin: 50% 50%;
-}
-.social-icons a[aria-label="SoundCloud"]:hover svg {
-  transform: translateY(-2px) scale(1.59);
-}
+             .letter {
+                 animation: floaty var(--dur, 9s) ease-in-out infinite;
+                 animation-delay: var(--delay, -1s);
+                 transform-origin: 50% 50%;
+                 will-change: transform;
+             }
 
-.social-icons a[aria-label="TikTok"] svg {
-  transform: scale(0.9);
-  transform-origin: 50% 50%;
-}
-.social-icons a[aria-label="TikTok"]:hover svg {
-  transform: translateY(-2px) scale(0.954);
-}
+             #logo-root .letter[data-letter="S"] {
+                 --jx: -3px;
+                 --rot: -1.1deg;
+                 --amp: 8px;
+                 --dur: 8.6s;
+                 --delay: -0.7s;
+             }
 
-/* Make contact button text larger */
-.contact-buttons .btn {
-  font-size: 2rem;
-}
+             #logo-root .letter[data-letter="H"] {
+                 --jx: 2px;
+                 --rot: 1.4deg;
+                 --amp: 6.5px;
+                 --dur: 9.2s;
+                 --delay: -1.2s;
+             }
 
+             #logo-root .letter[data-letter="R"] {
+                 --jx: -2px;
+                 --rot: 1.8deg;
+                 --amp: 8.5px;
+                 --dur: 8.9s;
+                 --delay: -0.3s;
+             }
 
-/* === Tweaks (baseline per user file) === */
+             #logo-root .letter[data-letter="O1"] {
+                 --jx: 3px;
+                 --rot: -1.6deg;
+                 --amp: 7.2px;
+                 --dur: 9.1s;
+                 --delay: -1.5s;
+             }
 
-/* Double the shadow for the elevator line */
-.elevator {
-  /* keep existing margin & color */
-  text-shadow:
-    1px 1px 0 #000,
-    -1px 1px 0 #000,
-    1px -1px 0 #000,
-    -1px -1px 0 #000,
-    0 0 28px rgba(168,85,247,.55),
-    0 0 48px rgba(236,72,153,.45);
-}
+             #logo-root .letter[data-letter="O2"] {
+                 --jx: 1px;
+                 --rot: 1.0deg;
+                 --amp: 5.8px;
+                 --dur: 9.7s;
+                 --delay: -0.9s;
+             }
 
-/* About body: stronger shadow + fun, readable font */
-p.lead {
-  font-family: 'Quicksand', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-  text-shadow:
-    1px 1px 0 #000,
-    -1px 1px 0 #000,
-    1px -1px 0 #000,
-    -1px -1px 0 #000,
-    0 0 20px rgba(168,85,247,.45);
-}
+             #logo-root .letter[data-letter="M"] {
+                 --jx: -3px;
+                 --rot: -1.3deg;
+                 --amp: 7.9px;
+                 --dur: 8.7s;
+                 --delay: -1.6s;
+             }
 
+             /* Sections */
+             section {
+                 padding: 56px 0;
+             }
 
-/* About body: adjust to 25% lighter of the prior purple and restore glow */
-p.lead {
-  color: #4c008b !important;
-  text-shadow:
-    1px 1px 0 #000,-1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000,
-    0 2px 0 #000,2px 0 0 #000,0 -2px 0 #000,-2px 0 0 #000,
-    0 0 16px rgba(168,85,247,.65),0 0 34px rgba(236,72,153,.4) !important;
+             h2 {
+                 font-size: clamp(26px, 4.4vw, 44px);
+                 margin: 0 0 12px;
+                 font-family: 'Chewy',system-ui,sans-serif;
+                 color: var(--cream);
+                 -webkit-text-stroke: 1.5px #000;
+                 text-shadow: 1px 1px 0 #000,-1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000, 0 2px 0 #000,2px 0 0 #000,0 -2px 0 #000,-2px 0 0 #000, 0 0 16px rgba(168,85,247,.65),0 0 34px rgba(236,72,153,.4);
+             }
 
-}
+             p.lead {
+                 color: var(--cream);
+                 font-size: clamp(24px, 3.9vw, 27px);
+                 margin: 10px auto;
+                 max-width: 860px;
+             }
 
+             .grid {
+                 display: grid;
+                 gap: 16px;
+                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+             }
 
-/* === Minimal About text override (per latest baseline) === */
-p.lead {
-  -webkit-text-stroke: 0.8px var(--cream) !important;
-  text-shadow:
-    0 0 16px rgba(168,85,247,.65),
-    0 0 34px rgba(236,72,153,.40) !important;
-}
+             .card {
+                 background: rgba(255,255,255,0.06);
+                 border: 0;
+                 border-radius: 16px;
+                 padding: 14px;
+                 filter: drop-shadow(0 0 14px rgba(168,85,247,.55)) drop-shadow(0 0 24px rgba(236,72,153,.35));
+             }
 
+             iframe {
+                 width: 100%;
+                 height: 172px;
+                 border: 0;
+                 border-radius: 12px;
+             }
 
-/* Outline artifact fix for About body (p.lead):
-   Use a crisp faux-outline via text-shadow instead of -webkit-text-stroke */
-p.lead {
-  -webkit-text-stroke: 0 !important; /* disable stroke to prevent overlaps */
-  /* White outline (thin) */
-  text-shadow:
-    /* 8-direction 1px outline */
-    1px 0 0 var(--cream),
-    -1px 0 0 var(--cream),
-    0 1px 0 var(--cream),
-    0 -1px 0 var(--cream),
-    1px 1px 0 var(--cream),
-    1px -1px 0 var(--cream),
-    -1px 1px 0 var(--cream),
-    -1px -1px 0 var(--cream),
-    /* Keep the purple/pink glow */
-    0 0 16px rgba(168,85,247,.65),
-    0 0 34px rgba(236,72,153,.40) !important;
-}
+             .card:hover {
+                 filter: drop-shadow(0 0 18px rgba(168,85,247,.65)) drop-shadow(0 0 30px rgba(236,72,153,.45));
+             }
 
+             footer {
+                 padding: 50px 0;
+                 text-align: center;
+                 color: #ffffff;
+             }
 
-/* === Minimal, targeted overrides (per latest baseline) === */
+             /* Social icons — 2x larger */
+             .social-icons {
+                 display: flex;
+                 gap: 22px;
+                 align-items: center;
+                 justify-content: center;
+                 margin-top: 18px;
+             }
 
-/* About body: header font + lighter-purple outline via text-shadow */
-p.lead {
-  font-family: 'Chewy', system-ui, sans-serif !important;
-  -webkit-text-stroke: 0 !important; /* keep faux-outline only */
-  text-shadow:
-    /* thin 1px 8-direction outline in lighter purple */
-    1px 0 0 #a680c5,
-    -1px 0 0 #a680c5,
-    0 1px 0 #a680c5,
-    0 -1px 0 #a680c5,
-    1px 1px 0 #a680c5,
-    1px -1px 0 #a680c5,
-    -1px 1px 0 #a680c5,
-    -1px -1px 0 #a680c5,
-    /* keep the existing purple/pink glow */
-    0 0 16px rgba(168,85,247,.65),
-    0 0 34px rgba(236,72,153,.40) !important;
-}
+             .icon-link {
+                 display: inline-flex;
+                 align-items: center;
+                 justify-content: center;
+                 width: 80px;
+                 height: 80px;
+                 border-radius: var(--btn-radius);
+             }
 
-/* Elevator spacing from logo: 3x current */
-.elevator { margin: 72px auto 6px !important; }
+                 .icon-link svg {
+                     width: 56px;
+                     height: 56px;
+                     fill: var(--icon);
+                     transition: transform .2s ease, filter .2s ease, fill .2s ease;
+                 }
 
+                 .icon-link:hover svg {
+                     transform: translateY(-2px) scale(1.06);
+                     filter: drop-shadow(0 0 14px rgba(168,85,247,0.55)) drop-shadow(0 0 22px rgba(236,72,153,0.35));
+                     fill: var(--icon-bright);
+                 }
 
-/* === Minimal About body tweak (outline color + tracking) === */
-p.lead {
-  /* 15% tracking */
-  letter-spacing: 0.15em !important;
-  /* keep faux-outline (no stroke), change outline to lime */
-  -webkit-text-stroke: 0 !important;
-  text-shadow:
-    1px 0 0 var(--lime),
-    -1px 0 0 var(--lime),
-    0 1px 0 var(--lime),
-    0 -1px 0 var(--lime),
-    1px 1px 0 var(--lime),
-    1px -1px 0 var(--lime),
-    -1px 1px 0 var(--lime),
-    -1px -1px 0 var(--lime),
-    /* keep existing purple/pink glow */
-    0 0 16px rgba(168,85,247,.65),
-    0 0 34px rgba(236,72,153,.40) !important;
-}
+             /* Contact buttons centered */
+             .contact-buttons {
+                 display: flex;
+                 flex-wrap: wrap;
+                 gap: 42px;
+                 align-items: center;
+                 justify-content: center;
+             }
 
+             /* Brandlet mini-logo above footer (larger box to avoid clipping) */
+             #brandlet {
+                 display: grid;
+                 place-items: center;
+                 margin: 24px 0 10px;
+                 min-height: 120px;
+                 overflow: visible;
+             }
 
-/* === Minimal About body override: match Contact button (green + black outline) === */
-p.lead {
-  color: var(--lime) !important;
-  -webkit-text-stroke: 0 !important; /* use faux-outline only */
-  text-shadow:
-    /* 1px black outline */
-    1px 0 0 #000,
-    -1px 0 0 #000,
-    0 1px 0 #000,
-    0 -1px 0 #000,
-    1px 1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    -1px -1px 0 #000,
-    /* keep existing glow */
-    0 0 16px rgba(168,85,247,.65),
-    0 0 34px rgba(236,72,153,.40) !important;
-}
+             #mini-logo {
+                 height: 60px;
+                 width: auto;
+                 overflow: visible;
+             }
 
+             .mletter {
+                 transform-box: fill-box;
+                 transform-origin: 50% 50%;
+                 animation: brand-bounce 2.6s ease-in-out infinite;
+                 animation-delay: var(--delay);
+             }
 
-/* === Minimal override: make About body text match Contact button text (except size) === */
-p.lead {
-  color: var(--lime) !important;
-  font-family:'Chewy',system-ui,sans-serif !important; /* same family as buttons */
-  -webkit-text-stroke: 1.4px #000 !important;
-  text-shadow:
-    1px 1px 0 #000,-1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000,
-    0 2px 0 #000,2px 0 0 #000,0 -2px 0 #000,-2px 0 0 #000,
-    0 0 12px rgba(168,85,247,.55),0 0 22px rgba(236,72,153,.35) !important;
-}
+             .mletter {
+                 transform: translateX(var(--gap));
+             }
+
+             @keyframes brand-bounce {
+                 0%, 100% {
+                     transform: translateX(var(--gap)) translateY(0);
+                 }
+
+                 20% {
+                     transform: translateX(var(--gap)) translateY(-10px);
+                 }
+
+                 50% {
+                     transform: translateX(var(--gap)) translateY(0);
+                 }
+
+                 80% {
+                     transform: translateX(var(--gap)) translateY(-5px);
+                 }
+             }
+
+             /* --- Gradient override to ensure a smooth top->bottom blend --- */
+             html {
+                 background: var(--bg-mid);
+             }
+             /* fallback */
+             body {
+                 background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 100%);
+                 background-repeat: no-repeat;
+             }
+
+             header.hero {
+                 background: transparent !important;
+             }
+
+             #contact {
+                 background: transparent !important;
+             }
+             /* --- End override --- */
 
 
-/* === Restore star overlay (abundant + pronounced twinkle) === */
-body { position: relative; }
-body::before, body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0; /* behind all content */
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+             /* Contact buttons: filled pink with Chewy font, outlined + glow */
+             .btn.solid {
+                 background: var(--icon);
+                 color: var(--cream);
+                 border: 0;
+             }
 
-/* Dense small stars */
-body::before {
-  opacity: 0.9;
-  background-image:
-    radial-gradient(1.6px 1.6px at 3% 6%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
-    radial-gradient(1.8px 1.8px at 7% 18%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
-    radial-gradient(1.5px 1.5px at 12% 32%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
-    radial-gradient(1.7px 1.7px at 18% 12%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
-    radial-gradient(1.6px 1.6px at 22% 44%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
-    radial-gradient(1.8px 1.8px at 28% 66%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
-    radial-gradient(1.6px 1.6px at 34% 22%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
-    radial-gradient(1.5px 1.5px at 40% 52%, rgba(255,255,255,0.85), rgba(255,255,255,0)),
-    radial-gradient(1.7px 1.7px at 45% 74%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
-    radial-gradient(1.6px 1.6px at 50% 16%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
-    radial-gradient(1.5px 1.5px at 56% 34%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
-    radial-gradient(1.8px 1.8px at 60% 58%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
-    radial-gradient(1.5px 1.5px at 66% 10%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
-    radial-gradient(1.7px 1.7px at 70% 28%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
-    radial-gradient(1.6px 1.6px at 74% 46%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
-    radial-gradient(1.5px 1.5px at 78% 64%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
-    radial-gradient(1.6px 1.6px at 82% 20%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
-    radial-gradient(1.7px 1.7px at 86% 38%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
-    radial-gradient(1.6px 1.6px at 90% 56%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
-    radial-gradient(1.5px 1.5px at 94% 74%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
-    radial-gradient(1.6px 1.6px at 8% 78%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
-    radial-gradient(1.5px 1.5px at 16% 86%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
-    radial-gradient(1.7px 1.7px at 22% 92%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
-    radial-gradient(1.6px 1.6px at 30% 84%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
-    radial-gradient(1.5px 1.5px at 38% 90%, rgba(255,255,255,0.85), rgba(255,255,255,0)),
-    radial-gradient(1.7px 1.7px at 46% 86%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
-    radial-gradient(1.6px 1.6px at 54% 92%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
-    radial-gradient(1.5px 1.5px at 62% 84%, rgba(255,255,255,0.9), rgba(255,255,255,0)),
-    radial-gradient(1.6px 1.6px at 70% 90%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
-    radial-gradient(1.7px 1.7px at 78% 86%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
-    radial-gradient(1.6px 1.6px at 86% 92%, rgba(255,255,255,0.95), rgba(255,255,255,0)),
-    radial-gradient(1.5px 1.5px at 92% 86%, rgba(255,255,255,0.9), rgba(255,255,255,0));
-  animation: twinkleDense 5.4s ease-in-out infinite;
-  filter: blur(0.2px);
-}
+             .contact-buttons .btn {
+                 font-family: 'Chewy',system-ui,sans-serif;
+                 -webkit-text-stroke: 1.2px #000;
+                 text-shadow: 1px 1px 0 #000,-1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000, 0 2px 0 #000,2px 0 0 #000,0 -2px 0 #000,-2px 0 0 #000, 0 0 12px rgba(168,85,247,.55),0 0 22px rgba(236,72,153,.35);
+                 filter: drop-shadow(0 0 10px rgba(168,85,247,.45)) drop-shadow(0 0 18px rgba(236,72,153,.35));
+             }
 
-/* Larger, bright stars */
-body::after {
-  opacity: 0.9;
-  background-image:
-    radial-gradient(3.4px 3.4px at 12% 26%, rgba(255,255,255,1), rgba(255,255,255,0)),
-    radial-gradient(3.0px 3.0px at 28% 12%, rgba(255,255,255,1), rgba(255,255,255,0)),
-    radial-gradient(3.6px 3.6px at 42% 42%, rgba(255,255,255,1), rgba(255,255,255,0)),
-    radial-gradient(3.2px 3.2px at 58% 22%, rgba(255,255,255,1), rgba(255,255,255,0)),
-    radial-gradient(3.8px 3.8px at 72% 36%, rgba(255,255,255,1), rgba(255,255,255,0)),
-    radial-gradient(3.2px 3.2px at 84% 18%, rgba(255,255,255,1), rgba(255,255,255,0)),
-    radial-gradient(3.6px 3.6px at 18% 68%, rgba(255,255,255,1), rgba(255,255,255,0)),
-    radial-gradient(3.0px 3.0px at 34% 82%, rgba(255,255,255,1), rgba(255,255,255,0)),
-    radial-gradient(3.8px 3.8px at 52% 72%, rgba(255,255,255,1), rgba(255,255,255,0)),
-    radial-gradient(3.4px 3.4px at 68% 86%, rgba(255,255,255,1), rgba(255,255,255,0)),
-    radial-gradient(3.2px 3.2px at 86% 74%, rgba(255,255,255,1), rgba(255,255,255,0)),
-    radial-gradient(3.6px 3.6px at 10% 94%, rgba(255,255,255,1), rgba(255,255,255,0));
-  animation: twinkleBright 6.6s ease-in-out infinite;
-  filter: blur(0.3px);
-}
+                 .contact-buttons .btn:hover {
+                     filter: drop-shadow(0 0 14px rgba(168,85,247,.65)) drop-shadow(0 0 26px rgba(236,72,153,.45));
+                 }
 
-@keyframes twinkleDense {
-  0%, 100% { opacity: 0.35; transform: translateY(0); }
-  50%      { opacity: 1.0;  transform: translateY(-1.6px); }
-}
 
-@keyframes twinkleBright {
-  0%, 100% { opacity: 0.30; transform: translateY(0); }
-  50%      { opacity: 1.0;  transform: translateY(1.6px); }
-}
+             /* === Overrides for requested tweaks === */
 
-/* Ensure site content sits above the stars */
-header.hero, section, footer, #brandlet { position: relative; z-index: 1; }
+             /* About body: bold, keep existing size/color */
+             p.lead {
+                 font-weight: 700;
+             }
 
-</style>
-  <link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgMzIwIj4KICA8ZyBpZD0iUyI+CiAgICA8cGF0aCBkPSJNMzAgMTY3LjMzM0MyNC45MiAxNjMuNjY1IDE1LjI4NTMgMTU1LjY2MSA4LjY2NjY3IDE0MkM3LjQ2MjY3IDEzOS41MTYgMS42MjUzMyAxMjcuMDcxIDIgMTEwQzIuNzAxMzMgNzguMDk3MyAyNC41MTg3IDU2LjcwOCAzMCA1MS4zMzMzQzQzLjM5ODcgMzguMTk3MyA1Ni44NDUzIDMyLjcwNTMgNzAgMjcuMzMzM0M4My4yODkzIDIxLjkwNjYgMTA3LjQ5OSAxMi4zNDUzIDEzOS4zMzMgMTUuMzMzM0MxNTEuMDA0IDE2LjQyOCAxNzcuNDA1IDE5LjI0NCAyMDAuNjY3IDM4QzIwNS40NDkgNDEuODU2IDIxNi43OTEgNTEuMiAyMjQuNjY3IDY3LjMzMzNDMjI5LjgyMyA3Ny44OTQ3IDIzMS4wMzEgODYuMjIxMyAyMzEuMzMzIDg4LjY2NjdDMjMyLjAyOSA5NC4yODI3IDIzMi45MTkgMTAxLjQ2IDIzMCAxMTBDMjI2LjQ2IDEyMC4zNiAyMTkuNTE1IDEyNi4yOTUgMjE2LjY2NyAxMjguNjY3QzIwOS4wMjQgMTM1LjAzMSAyMDEuMzY5IDEzNy4xMiAxOTggMTM4QzE5Ni4yMTUgMTM4LjQ2NyAxODguOTgxIDE0MC4yNTEgMTc5LjMzMyAxMzkuMzMzQzE2OS4yNjcgMTM4LjM3NiAxNjIuMTI1IDEzNS4wMDUgMTYyIDEzNS4zMzNDMTYxLjc1MyAxMzUuOTg0IDE5Mi4zNzIgMTQyLjU3NiAyMTEuMzMzIDE2NC42NjdDMjE3LjQyMSAxNzEuNzYgMjIxLjI0MSAxNzkuMjgxIDIyMiAxODAuNjY3QzIyNC4wNjUgMTg0LjQzNSAyMjguNzEzIDE5My44MTYgMjMwIDIwNkMyMzEuNTg5IDIyMS4wNTEgMjI3LjIzOSAyMzIuNjg1IDIyNC42NjcgMjM5LjMzM0MyMTkuNDA4IDI1Mi45MjQgMjEyLjA1MiAyNjEuNDMzIDIwMy4zMzMgMjcxLjMzM0MxOTcuMzc2IDI3OC4wOTkgMTg3LjU2MyAyODkuMjQzIDE3NCAyOThDMTM2LjAxMyAzMjIuNTI4IDkxLjU2IDMxMy41MTkgODIgMzExLjMzM0M2OC45NTIgMzA4LjM1MSA0Ni42IDMwMi45MzEgMjcuMzMzMyAyODMuMzMzQzIwLjAyOTMgMjc1LjkwNSAtMS4yMjkzMyAyNTQuMjgxIDAuNjY2NjY3IDIyMkMyLjU0IDE5MC4xMTEgMjUuNjU2IDE3MC44MjUgMzAgMTY3LjMzM1oiIGZpbGw9IiMwMDAwMDAiLz4KICAgIDxwYXRoIGQ9Ik0xMzIuNjY3IDM0QzE0NC40MTkgMzQuMzc4NyAxNjguOTM3IDM1LjE2OCAxOTAgNTIuNjY2N0MxOTYuMzQzIDU3LjkzNiAyMTQuNzk3IDczLjI2OCAyMTQgOTUuMzMzM0MyMTMuOTA1IDk3Ljk1NiAyMTMuMzczIDExMi43MDEgMjAyIDEyMkMxODguNDc2IDEzMy4wNTcgMTY2LjI2MSAxMzAuOTgxIDE1OCAxMjJDMTU2LjE5MSAxMjAuMDMzIDE1My44ODkgMTE2LjQ3MiAxNDguNjY3IDExMi42NjdDMTQ2LjEyNCAxMTAuODE1IDE0Mi44NDMgMTA4LjQ3MiAxMzggMTA3LjMzM0MxMzQuOTcxIDEwNi42MjEgMTI4Ljg0NyAxMDUuMTgxIDEyMy4zMzMgMTA4LjY2N0MxMjAuMzczIDExMC41MzcgMTE2LjM0MyAxMTQuNjE2IDExNi42NjcgMTE5LjMzM0MxMTYuOTk1IDEyNC4xMDkgMTIxLjYzNSAxMjcuMzI3IDEyNiAxMzBDMTQwLjA0MyAxMzguNTk5IDE0OS40MDMgMTQwLjQyMyAxNTkuMzMzIDE0NC42NjdDMTc1LjQ4MSAxNTEuNTY3IDE4NS43MzcgMTYxLjcwMSAxOTEuMzMzIDE2Ny4zMzNDMTk4LjM4MyAxNzQuNDI5IDIwNS42MjQgMTgxLjcxOSAyMTAgMTk0QzIxNS4wODMgMjA4LjI2MyAyMTMuMTU1IDIyMC41MzIgMjEyLjY2NyAyMjMuMzMzQzIwOS43NjMgMjM5Ljk4MSAxOTkuOTQ0IDI1MC4yNTkgMTkwIDI2MC42NjdDMTczLjU4NCAyNzcuODQ5IDE1Ni4yNTIgMjg1LjMyOSAxNTEuMzMzIDI4Ny4zMzNDMTQ0LjM1OSAyOTAuMTc1IDEyNy44NTEgMjk2LjY5MSAxMDYgMjk1LjMzM0M5OC4yOTg2IDI5NC44NTUgNjYuOTMwNiAyOTIuNDYgNDMuMzMzMyAyNjcuMzMzQzM2LjI0NjYgMjU5Ljc4OCAxNy4wMDUzIDIzOS4yOTkgMjIgMjE1LjMzM0MyMi4yNjI2IDIxNC4wNzYgMjYuNTg5MyAxOTQuNzc5IDQzLjMzMzMgMTg2QzQ2LjAzMDYgMTg0LjU4NSA1MS43Nzg3IDE4MS42NiA1OS4zMzMzIDE4MkM3MC4yNzQ3IDE4Mi40OTIgNzguNTY0IDE4OS41NDUgODAuNjY2NiAxOTEuMzMzQzg0Ljg1NDYgMTk0Ljg5NiA4Ni4zNCAxOTcuNjY3IDkyLjY2NjYgMjAyQzk3LjU3NiAyMDUuMzYzIDk5Ljk2NCAyMDUuOTQ0IDEwMiAyMDZDMTA1LjY4MSAyMDYuMTAxIDExMC41OTIgMjA0LjU1NiAxMTIuNjY3IDIwMC42NjdDMTEzLjA0MSAxOTkuOTY1IDExNC40MDkgMTk3LjE1MiAxMTIuNjY3IDE5MS4zMzNDMTA4LjEzOSAxNzYuMjA5IDkxLjA3NDYgMTY5LjA5NyA5MCAxNjguNjY3Qzg5LjU0OTMgMTY4LjQ4NyA4NS4yNTYgMTY3LjIxMyA3Ni42NjY2IDE2NC42NjdDNjYuNDM3MyAxNjEuNjMzIDY1Ljc0OTMgMTYxLjUwNSA2My4zMzMzIDE2MC42NjdDNTkuNTI0IDE1OS4zNDUgNTIuNDc3MyAxNTYuOSA0NiAxNTIuNjY3QzQzLjA5MDcgMTUwLjc2NSAzNC4zMjI2IDE0NC42IDI4LjY2NjYgMTM0QzIwLjE0NTMgMTE4LjAzMiAyMy44NCAxMDEuNjYzIDI0LjY2NjYgOThDMzEuNDQgNjcuOTk2IDYyLjgxMzMgNTMuMTc0NyA3OCA0NkMxMDQuNjE5IDMzLjQyNTMgMTI3LjcyNCAzMy44NDEzIDEzMi42NjcgMzRaIiBmaWxsPSIjRkFGMEU1Ii8+CiAgPC9nPgo8L3N2Zz4=">
+             /* Contact buttons: wider & outline by default */
+             .contact-buttons .btn {
+                 padding: 14px 28px;
+                 min-width: 260px;
+             }
+
+             /* Default outline style: pink text + border; Chewy outline already in baseline */
+             .btn.outline {
+                 background: transparent;
+                 color: var(--lime);
+                 border: 3px solid var(--icon);
+             }
+
+             /* Hover: fill pink, flip text to white, keep black text outline and glow */
+             .contact-buttons .btn.outline:hover {
+                 background: var(--icon);
+                 color: #ffffff;
+                 border-color: var(--icon);
+                 -webkit-text-stroke: 1.2px #000;
+                 filter: drop-shadow(0 0 14px rgba(168,85,247,.65)) drop-shadow(0 0 26px rgba(236,72,153,.45));
+             }
+
+             /* Keep social icons/brand pink */
+             :root {
+                 --icon: #f3158f;
+             }
+
+             /* Footer copyright text white (if not already) */
+             footer {
+                 color: #ffffff;
+             }
+
+
+             /* === On-page tweaks (appended) === */
+
+             /* Move elevator down a bit & add depth */
+             .elevator {
+                 margin: 24px auto 6px;
+                 text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000, 0 0 14px rgba(168,85,247,.45), 0 0 24px rgba(236,72,153,.35);
+             }
+
+             /* Add subtle depth to About text */
+             p.lead {
+                 text-shadow: 0.5px 0.5px 0 #000, -0.5px 0.5px 0 #000, 0.5px -0.5px 0 #000, -0.5px -0.5px 0 #000, 0 0 10px rgba(168,85,247,.35);
+             }
+
+             /* Icon sizing adjustments with alignment-preserving transforms */
+             .social-icons a[aria-label="SoundCloud"] svg {
+                 transform: scale(1.5);
+                 transform-origin: 50% 50%;
+             }
+
+             .social-icons a[aria-label="SoundCloud"]:hover svg {
+                 transform: translateY(-2px) scale(1.59);
+             }
+
+             .social-icons a[aria-label="TikTok"] svg {
+                 transform: scale(0.9);
+                 transform-origin: 50% 50%;
+             }
+
+             .social-icons a[aria-label="TikTok"]:hover svg {
+                 transform: translateY(-2px) scale(0.954);
+             }
+
+             /* Make contact button text larger */
+             .contact-buttons .btn {
+                 font-size: 2rem;
+             }
+
+
+             /* === Tweaks (baseline per user file) === */
+
+             /* Double the shadow for the elevator line */
+             .elevator {
+                 /* keep existing margin & color */
+                 text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000, 0 0 28px rgba(168,85,247,.55), 0 0 48px rgba(236,72,153,.45);
+             }
+
+             /* About body: stronger shadow + fun, readable font */
+             p.lead {
+                 font-family: 'Quicksand', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+                 text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000, 0 0 20px rgba(168,85,247,.45);
+             }
+
+
+             /* About body: adjust to 25% lighter of the prior purple and restore glow */
+             p.lead {
+                 color: #4c008b !important;
+                 text-shadow: 1px 1px 0 #000,-1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000, 0 2px 0 #000,2px 0 0 #000,0 -2px 0 #000,-2px 0 0 #000, 0 0 16px rgba(168,85,247,.65),0 0 34px rgba(236,72,153,.4) !important;
+             }
+
+
+             /* === Minimal About text override (per latest baseline) === */
+             p.lead {
+                 -webkit-text-stroke: 0.8px var(--cream) !important;
+                 text-shadow: 0 0 16px rgba(168,85,247,.65), 0 0 34px rgba(236,72,153,.40) !important;
+             }
+
+
+             /* Outline artifact fix for About body (p.lead):
+        Use a crisp faux-outline via text-shadow instead of -webkit-text-stroke */
+             p.lead {
+                 -webkit-text-stroke: 0 !important; /* disable stroke to prevent overlaps */
+                 /* White outline (thin) */
+                 text-shadow:
+                 /* 8-direction 1px outline */
+                 1px 0 0 var(--cream), -1px 0 0 var(--cream), 0 1px 0 var(--cream), 0 -1px 0 var(--cream), 1px 1px 0 var(--cream), 1px -1px 0 var(--cream), -1px 1px 0 var(--cream), -1px -1px 0 var(--cream),
+                 /* Keep the purple/pink glow */
+                 0 0 16px rgba(168,85,247,.65), 0 0 34px rgba(236,72,153,.40) !important;
+             }
+
+
+             /* === Minimal, targeted overrides (per latest baseline) === */
+
+             /* About body: header font + lighter-purple outline via text-shadow */
+             p.lead {
+                 font-family: 'Chewy', system-ui, sans-serif !important;
+                 -webkit-text-stroke: 0 !important; /* keep faux-outline only */
+                 text-shadow:
+                 /* thin 1px 8-direction outline in lighter purple */
+                 1px 0 0 #a680c5, -1px 0 0 #a680c5, 0 1px 0 #a680c5, 0 -1px 0 #a680c5, 1px 1px 0 #a680c5, 1px -1px 0 #a680c5, -1px 1px 0 #a680c5, -1px -1px 0 #a680c5,
+                 /* keep the existing purple/pink glow */
+                 0 0 16px rgba(168,85,247,.65), 0 0 34px rgba(236,72,153,.40) !important;
+             }
+
+             /* Elevator spacing from logo: 3x current */
+             .elevator {
+                 margin: 72px auto 6px !important;
+             }
+
+
+             /* === Minimal About body tweak (outline color + tracking) === */
+             p.lead {
+                 /* 15% tracking */
+                 letter-spacing: 0.15em !important;
+                 /* keep faux-outline (no stroke), change outline to lime */
+                 -webkit-text-stroke: 0 !important;
+                 text-shadow: 1px 0 0 var(--lime), -1px 0 0 var(--lime), 0 1px 0 var(--lime), 0 -1px 0 var(--lime), 1px 1px 0 var(--lime), 1px -1px 0 var(--lime), -1px 1px 0 var(--lime), -1px -1px 0 var(--lime),
+                 /* keep existing purple/pink glow */
+                 0 0 16px rgba(168,85,247,.65), 0 0 34px rgba(236,72,153,.40) !important;
+             }
+
+
+             /* === Minimal About body override: match Contact button (green + black outline) === */
+             p.lead {
+                 color: var(--lime) !important;
+                 -webkit-text-stroke: 0 !important; /* use faux-outline only */
+                 text-shadow:
+                 /* 1px black outline */
+                 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, -1px -1px 0 #000,
+                 /* keep existing glow */
+                 0 0 16px rgba(168,85,247,.65), 0 0 34px rgba(236,72,153,.40) !important;
+             }
+
+
+             /* === Minimal override: make About body text match Contact button text (except size) === */
+             p.lead {
+                 color: var(--lime) !important;
+                 font-family: 'Chewy',system-ui,sans-serif !important; /* same family as buttons */
+                 -webkit-text-stroke: 1.4px #000 !important;
+                 text-shadow: 1px 1px 0 #000,-1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000, 0 2px 0 #000,2px 0 0 #000,0 -2px 0 #000,-2px 0 0 #000, 0 0 12px rgba(168,85,247,.55),0 0 22px rgba(236,72,153,.35) !important;
+             }
+
+
+             /* === Restore star overlay (abundant + pronounced twinkle) === */
+             body {
+                 position: relative;
+             }
+
+                 body::before, body::after {
+                     content: "";
+                     position: fixed;
+                     inset: 0;
+                     pointer-events: none;
+                     z-index: 0; /* behind all content */
+                     background-repeat: no-repeat;
+                     background-size: cover;
+                 }
+
+                 /* Dense small stars */
+                 body::before {
+                     opacity: 0.9;
+                     background-image: radial-gradient(1.6px 1.6px at 3% 6%, rgba(255,255,255,0.95), rgba(255,255,255,0)), radial-gradient(1.8px 1.8px at 7% 18%, rgba(255,255,255,0.95), rgba(255,255,255,0)), radial-gradient(1.5px 1.5px at 12% 32%, rgba(255,255,255,0.9), rgba(255,255,255,0)), radial-gradient(1.7px 1.7px at 18% 12%, rgba(255,255,255,0.95), rgba(255,255,255,0)), radial-gradient(1.6px 1.6px at 22% 44%, rgba(255,255,255,0.9), rgba(255,255,255,0)), radial-gradient(1.8px 1.8px at 28% 66%, rgba(255,255,255,0.95), rgba(255,255,255,0)), radial-gradient(1.6px 1.6px at 34% 22%, rgba(255,255,255,0.9), rgba(255,255,255,0)), radial-gradient(1.5px 1.5px at 40% 52%, rgba(255,255,255,0.85), rgba(255,255,255,0)), radial-gradient(1.7px 1.7px at 45% 74%, rgba(255,255,255,0.95), rgba(255,255,255,0)), radial-gradient(1.6px 1.6px at 50% 16%, rgba(255,255,255,0.9), rgba(255,255,255,0)), radial-gradient(1.5px 1.5px at 56% 34%, rgba(255,255,255,0.9), rgba(255,255,255,0)), radial-gradient(1.8px 1.8px at 60% 58%, rgba(255,255,255,0.95), rgba(255,255,255,0)), radial-gradient(1.5px 1.5px at 66% 10%, rgba(255,255,255,0.9), rgba(255,255,255,0)), radial-gradient(1.7px 1.7px at 70% 28%, rgba(255,255,255,0.9), rgba(255,255,255,0)), radial-gradient(1.6px 1.6px at 74% 46%, rgba(255,255,255,0.9), rgba(255,255,255,0)), radial-gradient(1.5px 1.5px at 78% 64%, rgba(255,255,255,0.9), rgba(255,255,255,0)), radial-gradient(1.6px 1.6px at 82% 20%, rgba(255,255,255,0.95), rgba(255,255,255,0)), radial-gradient(1.7px 1.7px at 86% 38%, rgba(255,255,255,0.95), rgba(255,255,255,0)), radial-gradient(1.6px 1.6px at 90% 56%, rgba(255,255,255,0.95), rgba(255,255,255,0)), radial-gradient(1.5px 1.5px at 94% 74%, rgba(255,255,255,0.9), rgba(255,255,255,0)), radial-gradient(1.6px 1.6px at 8% 78%, rgba(255,255,255,0.95), rgba(255,255,255,0)), radial-gradient(1.5px 1.5px at 16% 86%, rgba(255,255,255,0.9), rgba(255,255,255,0)), radial-gradient(1.7px 1.7px at 22% 92%, rgba(255,255,255,0.95), rgba(255,255,255,0)), radial-gradient(1.6px 1.6px at 30% 84%, rgba(255,255,255,0.9), rgba(255,255,255,0)), radial-gradient(1.5px 1.5px at 38% 90%, rgba(255,255,255,0.85), rgba(255,255,255,0)), radial-gradient(1.7px 1.7px at 46% 86%, rgba(255,255,255,0.95), rgba(255,255,255,0)), radial-gradient(1.6px 1.6px at 54% 92%, rgba(255,255,255,0.9), rgba(255,255,255,0)), radial-gradient(1.5px 1.5px at 62% 84%, rgba(255,255,255,0.9), rgba(255,255,255,0)), radial-gradient(1.6px 1.6px at 70% 90%, rgba(255,255,255,0.95), rgba(255,255,255,0)), radial-gradient(1.7px 1.7px at 78% 86%, rgba(255,255,255,0.95), rgba(255,255,255,0)), radial-gradient(1.6px 1.6px at 86% 92%, rgba(255,255,255,0.95), rgba(255,255,255,0)), radial-gradient(1.5px 1.5px at 92% 86%, rgba(255,255,255,0.9), rgba(255,255,255,0));
+                     animation: twinkleDense 5.4s ease-in-out infinite;
+                     filter: blur(0.2px);
+                 }
+
+                 /* Larger, bright stars */
+                 body::after {
+                     opacity: 0.9;
+                     background-image: radial-gradient(3.4px 3.4px at 12% 26%, rgba(255,255,255,1), rgba(255,255,255,0)), radial-gradient(3.0px 3.0px at 28% 12%, rgba(255,255,255,1), rgba(255,255,255,0)), radial-gradient(3.6px 3.6px at 42% 42%, rgba(255,255,255,1), rgba(255,255,255,0)), radial-gradient(3.2px 3.2px at 58% 22%, rgba(255,255,255,1), rgba(255,255,255,0)), radial-gradient(3.8px 3.8px at 72% 36%, rgba(255,255,255,1), rgba(255,255,255,0)), radial-gradient(3.2px 3.2px at 84% 18%, rgba(255,255,255,1), rgba(255,255,255,0)), radial-gradient(3.6px 3.6px at 18% 68%, rgba(255,255,255,1), rgba(255,255,255,0)), radial-gradient(3.0px 3.0px at 34% 82%, rgba(255,255,255,1), rgba(255,255,255,0)), radial-gradient(3.8px 3.8px at 52% 72%, rgba(255,255,255,1), rgba(255,255,255,0)), radial-gradient(3.4px 3.4px at 68% 86%, rgba(255,255,255,1), rgba(255,255,255,0)), radial-gradient(3.2px 3.2px at 86% 74%, rgba(255,255,255,1), rgba(255,255,255,0)), radial-gradient(3.6px 3.6px at 10% 94%, rgba(255,255,255,1), rgba(255,255,255,0));
+                     animation: twinkleBright 6.6s ease-in-out infinite;
+                     filter: blur(0.3px);
+                 }
+
+             @keyframes twinkleDense {
+                 0%, 100% {
+                     opacity: 0.35;
+                     transform: translateY(0);
+                 }
+
+                 50% {
+                     opacity: 1.0;
+                     transform: translateY(-1.6px);
+                 }
+             }
+
+             @keyframes twinkleBright {
+                 0%, 100% {
+                     opacity: 0.30;
+                     transform: translateY(0);
+                 }
+
+                 50% {
+                     opacity: 1.0;
+                     transform: translateY(1.6px);
+                 }
+             }
+
+             /* Ensure site content sits above the stars */
+             header.hero, section, footer, #brandlet {
+                 position: relative;
+                 z-index: 1;
+             }
+    </style>
+    <link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgMzIwIj4KICA8ZyBpZD0iUyI+CiAgICA8cGF0aCBkPSJNMzAgMTY3LjMzM0MyNC45MiAxNjMuNjY1IDE1LjI4NTMgMTU1LjY2MSA4LjY2NjY3IDE0MkM3LjQ2MjY3IDEzOS41MTYgMS42MjUzMyAxMjcuMDcxIDIgMTEwQzIuNzAxMzMgNzguMDk3MyAyNC41MTg3IDU2LjcwOCAzMCA1MS4zMzMzQzQzLjM5ODcgMzguMTk3MyA1Ni44NDUzIDMyLjcwNTMgNzAgMjcuMzMzM0M4My4yODkzIDIxLjkwNjYgMTA3LjQ5OSAxMi4zNDUzIDEzOS4zMzMgMTUuMzMzM0MxNTEuMDA0IDE2LjQyOCAxNzcuNDA1IDE5LjI0NCAyMDAuNjY3IDM4QzIwNS40NDkgNDEuODU2IDIxNi43OTEgNTEuMiAyMjQuNjY3IDY3LjMzMzNDMjI5LjgyMyA3Ny44OTQ3IDIzMS4wMzEgODYuMjIxMyAyMzEuMzMzIDg4LjY2NjdDMjMyLjAyOSA5NC4yODI3IDIzMi45MTkgMTAxLjQ2IDIzMCAxMTBDMjI2LjQ2IDEyMC4zNiAyMTkuNTE1IDEyNi4yOTUgMjE2LjY2NyAxMjguNjY3QzIwOS4wMjQgMTM1LjAzMSAyMDEuMzY5IDEzNy4xMiAxOTggMTM4QzE5Ni4yMTUgMTM4LjQ2NyAxODguOTgxIDE0MC4yNTEgMTc5LjMzMyAxMzkuMzMzQzE2OS4yNjcgMTM4LjM3NiAxNjIuMTI1IDEzNS4wMDUgMTYyIDEzNS4zMzNDMTYxLjc1MyAxMzUuOTg0IDE5Mi4zNzIgMTQyLjU3NiAyMTEuMzMzIDE2NC42NjdDMjE3LjQyMSAxNzEuNzYgMjIxLjI0MSAxNzkuMjgxIDIyMiAxODAuNjY3QzIyNC4wNjUgMTg0LjQzNSAyMjguNzEzIDE5My44MTYgMjMwIDIwNkMyMzEuNTg5IDIyMS4wNTEgMjI3LjIzOSAyMzIuNjg1IDIyNC42NjcgMjM5LjMzM0MyMTkuNDA4IDI1Mi45MjQgMjEyLjA1MiAyNjEuNDMzIDIwMy4zMzMgMjcxLjMzM0MxOTcuMzc2IDI3OC4wOTkgMTg3LjU2MyAyODkuMjQzIDE3NCAyOThDMTM2LjAxMyAzMjIuNTI4IDkxLjU2IDMxMy41MTkgODIgMzExLjMzM0M2OC45NTIgMzA4LjM1MSA0Ni42IDMwMi45MzEgMjcuMzMzMyAyODMuMzMzQzIwLjAyOTMgMjc1LjkwNSAtMS4yMjkzMyAyNTQuMjgxIDAuNjY2NjY3IDIyMkMyLjU0IDE5MC4xMTEgMjUuNjU2IDE3MC44MjUgMzAgMTY3LjMzM1oiIGZpbGw9IiMwMDAwMDAiLz4KICAgIDxwYXRoIGQ9Ik0xMzIuNjY3IDM0QzE0NC40MTkgMzQuMzc4NyAxNjguOTM3IDM1LjE2OCAxOTAgNTIuNjY2N0MxOTYuMzQzIDU3LjkzNiAyMTQuNzk3IDczLjI2OCAyMTQgOTUuMzMzM0MyMTMuOTA1IDk3Ljk1NiAyMTMuMzczIDExMi43MDEgMjAyIDEyMkMxODguNDc2IDEzMy4wNTcgMTY2LjI2MSAxMzAuOTgxIDE1OCAxMjJDMTU2LjE5MSAxMjAuMDMzIDE1My44ODkgMTE2LjQ3MiAxNDguNjY3IDExMi42NjdDMTQ2LjEyNCAxMTAuODE1IDE0Mi44NDMgMTA4LjQ3MiAxMzggMTA3LjMzM0MxMzQuOTcxIDEwNi42MjEgMTI4Ljg0NyAxMDUuMTgxIDEyMy4zMzMgMTA4LjY2N0MxMjAuMzczIDExMC41MzcgMTE2LjM0MyAxMTQuNjE2IDExNi42NjcgMTE5LjMzM0MxMTYuOTk1IDEyNC4xMDkgMTIxLjYzNSAxMjcuMzI3IDEyNiAxMzBDMTQwLjA0MyAxMzguNTk5IDE0OS40MDMgMTQwLjQyMyAxNTkuMzMzIDE0NC42NjdDMTc1LjQ4MSAxNTEuNTY3IDE4NS43MzcgMTYxLjcwMSAxOTEuMzMzIDE2Ny4zMzNDMTk4LjM4MyAxNzQuNDI5IDIwNS42MjQgMTgxLjcxOSAyMTAgMTk0QzIxNS4wODMgMjA4LjI2MyAyMTMuMTU1IDIyMC41MzIgMjEyLjY2NyAyMjMuMzMzQzIwOS43NjMgMjM5Ljk4MSAxOTkuOTQ0IDI1MC4yNTkgMTkwIDI2MC42NjdDMTczLjU4NCAyNzcuODQ5IDE1Ni4yNTIgMjg1LjMyOSAxNTEuMzMzIDI4Ny4zMzNDMTQ0LjM1OSAyOTAuMTc1IDEyNy44NTEgMjk2LjY5MSAxMDYgMjk1LjMzM0M5OC4yOTg2IDI5NC44NTUgNjYuOTMwNiAyOTIuNDYgNDMuMzMzMyAyNjcuMzMzQzM2LjI0NjYgMjU5Ljc4OCAxNy4wMDUzIDIzOS4yOTkgMjIgMjE1LjMzM0MyMi4yNjI2IDIxNC4wNzYgMjYuNTg5MyAxOTQuNzc5IDQzLjMzMzMgMTg2QzQ2LjAzMDYgMTg0LjU4NSA1MS43Nzg3IDE4MS42NiA1OS4zMzMzIDE4MkM3MC4yNzQ3IDE4Mi40OTIgNzguNTY0IDE4OS41NDUgODAuNjY2NiAxOTEuMzMzQzg0Ljg1NDYgMTk0Ljg5NiA4Ni4zNCAxOTcuNjY3IDkyLjY2NjYgMjAyQzk3LjU3NiAyMDUuMzYzIDk5Ljk2NCAyMDUuOTQ0IDEwMiAyMDZDMTA1LjY4MSAyMDYuMTAxIDExMC41OTIgMjA0LjU1NiAxMTIuNjY3IDIwMC42NjdDMTEzLjA0MSAxOTkuOTY1IDExNC40MDkgMTk3LjE1MiAxMTIuNjY3IDE5MS4zMzNDMTA4LjEzOSAxNzYuMjA5IDkxLjA3NDYgMTY5LjA5NyA5MCAxNjguNjY3Qzg5LjU0OTMgMTY4LjQ4NyA4NS4yNTYgMTY3LjIxMyA3Ni42NjY2IDE2NC42NjdDNjYuNDM3MyAxNjEuNjMzIDY1Ljc0OTMgMTYxLjUwNSA2My4zMzMzIDE2MC42NjdDNTkuNTI0IDE1OS4zNDUgNTIuNDc3MyAxNTYuOSA0NiAxNTIuNjY3QzQzLjA5MDcgMTUwLjc2NSAzNC4zMjI2IDE0NC42IDI4LjY2NjYgMTM0QzIwLjE0NTMgMTE4LjAzMiAyMy44NCAxMDEuNjYzIDI0LjY2NjYgOThDMzEuNDQgNjcuOTk2IDYyLjgxMzMgNTMuMTc0NyA3OCA0NkMxMDQuNjE5IDMzLjQyNTMgMTI3LjcyNCAzMy44NDEzIDEzMi42NjcgMzRaIiBmaWxsPSIjRkFGMEU1Ii8+CiAgPC9nPgo8L3N2Zz4=">
 </head>
 <body>
   <header class="hero">
