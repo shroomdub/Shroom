@@ -136,6 +136,7 @@
 (function(){
   const storeKey = "dlUnlocked";
   const pendKey  = "dlPending";
+  const DELAY_MS = 15000; // delay (ms) before Download link is revealed
   const unlocked = JSON.parse(localStorage.getItem(storeKey) || "{}");
   const pending  = JSON.parse(localStorage.getItem(pendKey)  || "{}");
 
@@ -171,8 +172,51 @@
   });
 
   function unlockPending(){
-    const now = Date.now();
-    const pend = JSON.parse(localStorage.getItem(pendKey) || "{}");
+    const now    = Date.now();
+    const pend   = JSON.parse(localStorage.getItem(pendKey) || "{}");
+    let changed  = false;
+
+    function doUnlock(id){
+      const link = document.getElementById(id + '-link');
+      const unlocked = JSON.parse(localStorage.getItem(storeKey) || "{}");
+      unlocked[id] = 1;
+      localStorage.setItem(storeKey, JSON.stringify(unlocked));
+      if (link) link.style.display = 'inline-block';
+      if (typeof showToast === 'function') {
+        showToast('Thanks for following — download unlocked!');
+      }
+    }
+
+    function scheduleUnlock(id, clickedAt){
+      const elapsed   = Date.now() - clickedAt;
+      const remaining = Math.max(0, DELAY_MS - elapsed);
+      if (remaining === 0) {
+        doUnlock(id);
+      } else {
+        if (typeof showToast === 'function') {
+          showToast(`Unlocking in ${Math.ceil(remaining/1000)}s…`);
+        }
+        setTimeout(() => doUnlock(id), remaining);
+      }
+    }
+
+    Object.keys(pend).forEach(id => {
+      // If they returned within 2 hours, schedule the delayed unlock
+      if (Date.now() - pend[id] < 2 * 60 * 60 * 1000) {
+        scheduleUnlock(id, pend[id]);
+        delete pend[id];   // prevent double-scheduling
+        changed = true;
+      } else {
+        delete pend[id];   // stale pending
+        changed = true;
+      }
+    });
+
+    if (changed) {
+      localStorage.setItem(pendKey, JSON.stringify(pend));
+    }
+  }
+");
     let changed = false;
     Object.keys(pend).forEach(id => {
       if (now - pend[id] < 2 * 60 * 60 * 1000) { // within 2 hours
