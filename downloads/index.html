@@ -55,6 +55,19 @@
   box-shadow:0 0 14px rgba(168,85,247,.55), 0 0 24px rgba(236,72,153,.35);}
 .dl-art img{width:100%;height:100%;object-fit:cover;display:block}
 .dl-body{display:flex;flex-direction:column;gap:8px}
+.dl-artist{
+  margin: 2px 0 10px;
+  font-size: 14px;
+  line-height: 1.3;
+  letter-spacing: .02em;
+  color: var(--cream);
+  opacity: .9;
+  /* subtle glow to match site vibe, lighter than titles */
+  text-shadow: 0 0 10px rgba(168,85,247,.25), 0 0 18px rgba(236,72,153,.20);
+}
+@media (max-width:640px){
+  .dl-artist{ margin-bottom: 8px; }
+}
 </style>
 </head>
 <body>
@@ -71,6 +84,7 @@
     </div>
     <div class="dl-body">
       <h3 class="dl-item-title">Shape Shift (Shroom Flip)</h3>
+      <p class="dl-artist">Zingara & Shroom</p>
       <div class="dl-actions">
           <a class="btn solid"
              href="https://instagram.com/shroomdub"
