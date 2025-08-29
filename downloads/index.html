@@ -133,10 +133,11 @@
   <footer class="container" style="text-align:center;opacity:.85;font-size:14px;margin-top:28px">© <span id="year"></span> Shroom. All rights reserved.</footer>
 
 <script>
+
 (function(){
   const storeKey = "dlUnlocked";
   const pendKey  = "dlPending";
-  const DELAY_MS = 15000; // delay (ms) before Download link is revealed
+  const DELAY_MS = 15000; // delay before unlock (ms)
   const unlocked = JSON.parse(localStorage.getItem(storeKey) || "{}");
   const pending  = JSON.parse(localStorage.getItem(pendKey)  || "{}");
 
@@ -172,50 +173,51 @@
   });
 
   function unlockPending(){
-    const now    = Date.now();
-    const pend   = JSON.parse(localStorage.getItem(pendKey) || "{}");
-    let changed  = false;
+  const storeKey = "dlUnlocked";
+  const pendKey  = "dlPending";
+  const DELAY    = typeof DELAY_MS !== 'undefined' ? DELAY_MS : 6000;
 
-    function doUnlock(id){
-      const link = document.getElementById(id + '-link');
-      const unlocked = JSON.parse(localStorage.getItem(storeKey) || "{}");
-      unlocked[id] = 1;
-      localStorage.setItem(storeKey, JSON.stringify(unlocked));
-      if (link) link.style.display = 'inline-block';
-      if (typeof showToast === 'function') {
-        showToast('Thanks for following — download unlocked!');
-      }
+  const pend   = JSON.parse(localStorage.getItem(pendKey) || "{}");
+  let changed  = false;
+
+  function doUnlock(id){
+    const link = document.getElementById(id + '-link');
+    const unlocked = JSON.parse(localStorage.getItem(storeKey) || "{}");
+    unlocked[id] = 1;
+    localStorage.setItem(storeKey, JSON.stringify(unlocked));
+    if (link) {
+      link.style.display = 'inline-block';
+      link.hidden = false;
     }
+    if (typeof showToast === 'function') showToast('Thanks for following — download unlocked!');
+  }
 
-    function scheduleUnlock(id, clickedAt){
-      const elapsed   = Date.now() - clickedAt;
-      const remaining = Math.max(0, DELAY_MS - elapsed);
-      if (remaining === 0) {
-        doUnlock(id);
-      } else {
-        if (typeof showToast === 'function') {
-          showToast(`Unlocking in ${Math.ceil(remaining/1000)}s…`);
-        }
-        setTimeout(() => doUnlock(id), remaining);
-      }
-    }
-
-    Object.keys(pend).forEach(id => {
-      // If they returned within 2 hours, schedule the delayed unlock
-      if (Date.now() - pend[id] < 2 * 60 * 60 * 1000) {
-        scheduleUnlock(id, pend[id]);
-        delete pend[id];   // prevent double-scheduling
-        changed = true;
-      } else {
-        delete pend[id];   // stale pending
-        changed = true;
-      }
-    });
-
-    if (changed) {
-      localStorage.setItem(pendKey, JSON.stringify(pend));
+  function scheduleUnlock(id, clickedAt){
+    const elapsed   = Date.now() - clickedAt;
+    const remaining = Math.max(0, DELAY - elapsed);
+    if (remaining === 0) {
+      doUnlock(id);
+    } else {
+      if (typeof showToast === 'function') showToast(`Unlocking in ${Math.ceil(remaining/1000)}s…`);
+      setTimeout(() => doUnlock(id), remaining);
     }
   }
+
+  Object.keys(pend).forEach(id => {
+    if (Date.now() - pend[id] < 2 * 60 * 60 * 1000) { // within 2 hours
+      scheduleUnlock(id, pend[id]);
+      delete pend[id];   // prevent double-scheduling
+      changed = true;
+    } else {
+      delete pend[id];   // stale pending
+      changed = true;
+    }
+  });
+
+  if (changed) {
+    localStorage.setItem(pendKey, JSON.stringify(pend));
+  }
+}
 ");
     let changed = false;
     Object.keys(pend).forEach(id => {
@@ -242,6 +244,8 @@
     if (document.visibilityState === 'visible') unlockPending();
   });
 })();
+window.addEventListener("pageshow", unlockPending);
+
 </script>
 
 <div id="toast" aria-live="polite" aria-atomic="true" style="display:none"></div>
