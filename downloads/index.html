@@ -23,7 +23,7 @@
     .btn.outline{background:transparent;color:var(--lime);border:3px solid var(--lime)}
     .btn.outline:hover{background:var(--icon);color:#fff;border-color:var(--icon)}
     .downloads{display:grid;grid-template-columns:1fr;gap:18px}
-    .dl-item-title{font-family:'Chewy',cursive;font-size:clamp(20px,3.2vw,28px);letter-spacing:.02em;margin:0 0 6px}
+    .dl-item-title{font-family:'Chewy',cursive;font-size:clamp(20px,3.2vw,28px);letter-spacing:.02em;margin:0 0 6px;-webkit-text-stroke:1.2px #000;text-shadow:1px 1px 0 #000,-1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000,0 2px 0 #000,2px 0 0 #000,0 -2px 0 #000,-2px 0 0 #000}
     .dl-actions{display:flex;gap:14px;flex-wrap:wrap}
     .lead{font-size:clamp(16px,2.6vw,18px)}
   
@@ -60,7 +60,7 @@
   font-size: clamp(16px, 2.6vw, 22px);
   letter-spacing: .02em;
   margin: 0 0 8px;
-}
+;-webkit-text-stroke:1px #000;text-shadow:1px 1px 0 #000,-1px 1px 0 #000,1px -1px 0 #000,-1px -1px 0 #000,0 2px 0 #000,2px 0 0 #000,0 -2px 0 #000,-2px 0 0 #000}
 </style>
 </head>
 <body>
@@ -130,16 +130,14 @@
   </div>
 
 
-  <footer class="container" style="text-align:center;opacity:.85;font-size:14px;margin-top:28px">
-    © <span id="year"></span> Shroom. All rights reserved.</footer>
+  <footer class="container" style="text-align:center;opacity:.85;font-size:14px;margin-top:28px">© <span id="year"></span> Shroom. All rights reserved.</footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
 <script>
 (function(){
   const storeKey = "dlUnlocked";
   const pendKey  = "dlPending";
-  const DELAY_MS = 30000; // delay before unlock (ms)
+  const DELAY_MS = 15000; // delay before unlock (ms)
 
   function showToast(msg){
     let t = document.getElementById('toast');
