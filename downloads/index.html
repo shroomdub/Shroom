@@ -56,17 +56,10 @@
 .dl-art img{width:100%;height:100%;object-fit:cover;display:block}
 .dl-body{display:flex;flex-direction:column;gap:8px}
 .dl-artist{
-  margin: 2px 0 10px;
-  font-size: 14px;
-  line-height: 1.3;
+  font-family: 'Chewy', cursive;
+  font-size: clamp(16px, 2.6vw, 22px);
   letter-spacing: .02em;
-  color: var(--cream);
-  opacity: .9;
-  /* subtle glow to match site vibe, lighter than titles */
-  text-shadow: 0 0 10px rgba(168,85,247,.25), 0 0 18px rgba(236,72,153,.20);
-}
-@media (max-width:640px){
-  .dl-artist{ margin-bottom: 8px; }
+  margin: 0 0 8px;
 }
 </style>
 </head>
