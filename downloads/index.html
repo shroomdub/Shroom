@@ -87,7 +87,12 @@
           <a class="btn solid"
              id="dl1-link"
              href="/assets/downloads/shape-shift-shroom-flip/Shape Shift (Shroom Flip).mp3"
-             style="display:none">Download</a>
+             style="display:none">Download MP3</a>
+          <a class="btn solid"
+             id="dl1-wav-link"
+             href="https://drive.google.com/file/d/1StjOOE8EOsSnQ5j7TkxYLdLdXxpdlN8X/view?usp=drive_link"
+             style="display:none">Download WAV</a>
+
       </div>  
     </div>
   </div>
@@ -160,10 +165,10 @@
     Object.keys(unlocked).forEach(id => {
       if (unlocked[id] === 1) {
         const link = document.getElementById(id + '-link');
-        if (link) {
-          link.style.display = 'inline-block';
-          link.hidden = false;
-        }
+        if (link) { link.style.display='inline-block'; link.hidden=false; }
+    if (wav)  { wav.style.display='inline-block';  wav.hidden=false; }
+        const wav = document.getElementById(id + '-wav-link');
+        if (wav) { wav.style.display='inline-block'; wav.hidden=false; }
       }
     });
   })();
@@ -180,6 +185,7 @@
 
   function doUnlock(id){
     const link = document.getElementById(id + '-link');
+    const wav  = document.getElementById(id + '-wav-link');
     const unlocked = JSON.parse(localStorage.getItem(storeKey) || "{}");
     unlocked[id] = 1;
     localStorage.setItem(storeKey, JSON.stringify(unlocked));
