@@ -160,18 +160,19 @@
   }
 
   // Reveal any previously unlocked links (persisted)
-  (function revealUnlocked(){
-    const unlocked = JSON.parse(localStorage.getItem(storeKey) || "{}");
-    Object.keys(unlocked).forEach(id => {
-      if (unlocked[id] === 1) {
-        const link = document.getElementById(id + '-link');
-        if (link) { link.style.display='inline-block'; link.hidden=false; }
-    if (wav)  { wav.style.display='inline-block';  wav.hidden=false; }
-        const wav = document.getElementById(id + '-wav-link');
-        if (wav) { wav.style.display='inline-block'; wav.hidden=false; }
-      }
-    });
-  })();
+  
+(function revealUnlocked(){
+  const unlocked = JSON.parse(localStorage.getItem(storeKey) || "{}");
+  Object.keys(unlocked).forEach(id => {
+    if (unlocked[id] === 1) {
+      const link = document.getElementById(id + '-link');
+      const wav  = document.getElementById(id + '-wav-link');
+      if (link) { link.style.display='inline-block'; link.hidden=false; }
+      if (wav)  { wav.style.display='inline-block';  wav.hidden=false; }
+    }
+  });
+})();
+
 
   // Mark gate as pending on Follow click
   document.querySelectorAll('a[data-gate][href*="instagram.com"]').forEach(a => {
@@ -189,10 +190,8 @@
     const unlocked = JSON.parse(localStorage.getItem(storeKey) || "{}");
     unlocked[id] = 1;
     localStorage.setItem(storeKey, JSON.stringify(unlocked));
-    if (link) {
-      link.style.display = 'inline-block';
-      link.hidden = false;
-    }
+    if (link) { link.style.display = 'inline-block'; link.hidden = false; }
+    if (wav)  { wav.style.display  = 'inline-block'; wav.hidden  = false; }
     showToast('Thanks for following — download unlocked!');
   }
 
